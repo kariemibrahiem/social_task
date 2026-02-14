@@ -50,7 +50,7 @@ $container = ($container ?? 'container-xxl');
 
 
       <!-- Content wrapper -->
-      <div class="content-wrapper" style="margin-left: 250px;">
+      <div class="content-wrapper" style="margin-left: ;">
 
         <!-- Content -->
         @if ($isFlex)

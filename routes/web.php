@@ -105,11 +105,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::post('/collaborations/destroySelected', [\App\Http\Controllers\Admin\CollaborationController::class, 'destroySelected'])
             ->name('collaborations.destroySelected');
 
-        Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class);
-        Route::post('/projects/updateColumnSelected', [\App\Http\Controllers\Admin\ProjectController::class, 'updateColumnSelected'])
-            ->name('projects.updateColumnSelected');
-        Route::post('/projects/destroySelected', [\App\Http\Controllers\Admin\ProjectController::class, 'destroySelected'])
-            ->name('projects.destroySelected');
+        Route::resource('Backprojects', \App\Http\Controllers\Admin\ProjectController::class);
+        Route::post('/Backprojects/updateColumnSelected', [\App\Http\Controllers\Admin\ProjectController::class, 'updateColumnSelected'])
+            ->name('Backprojects.updateColumnSelected');
+        Route::post('/Backprojects/destroySelected', [\App\Http\Controllers\Admin\ProjectController::class, 'destroySelected'])
+            ->name('Backprojects.destroySelected');
 
 
         Route::resource('settings', \App\Http\Controllers\Admin\SettingController::class);

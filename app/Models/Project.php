@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+
+    protected $table = 'portfolios';
     protected $fillable = [
-        'name',
+        'title',
         'description',
-        'status',
-        "link",
-        "collaborators",
-        "image",
-        "partner_id"
+        'url',
+        'image',
+        'category',
+        'sort_order',
+        'partner_id'
     ];
 
     public function partner()

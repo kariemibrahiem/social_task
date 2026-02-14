@@ -110,42 +110,28 @@ return [
 
 
     ],
+    
     (object)[
         'name' => 'Project',
         'icon' => 'bx bx-user',
-        'url' => 'projects.index',
+        'url' => 'Backprojects.index',
         "permissions" => "projects_read",
         'slug' => 'projects',
         'submenu' => [
             (object)[
                 'name' => 'Project',
-                'url' => 'projects.index',
+                'url' => 'Backprojects.index',
                 "permissions" => "projects_read",
                 'slug' => 'projects',
             ],
             (object)[
                 'name' => 'Create Project',
-                'url' => 'projects.create',
+                'url' => 'Backprojects.create',
                 "permissions" => "projects_create",
                 'slug' => 'projects.create',
             ]
         ]
 
 
-    ],
-    (object)[
-        'name' => 'Project',
-        'icon' => 'bx bx-user',
-        'url' => 'projects.index',
-        "permissions" => "projects_read",
-        'slug' => 'projects',
-        'submenu' => [
-            (object)[
-                'name' => 'settings',
-                'url' => 'settings.index',
-                "permissions" => "settings_read",
-                'slug' => 'settings',
-            ]
-        ]
     ]
 ];

@@ -35,6 +35,13 @@ class ProjectController extends Controller
         return $this->objService->edit($model);
     }
 
+
+    public function show($id)
+    {
+        $model = $this->objModel->findOrFail($id);
+        return $this->objService->show($model);
+    }
+
     public function update(ObjRequest $request, $id)
     {
         $data = $request->validated();

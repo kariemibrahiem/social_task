@@ -116,6 +116,13 @@
         <thead>
           <tr>
             <th><input type="checkbox" id="select-all"></th>
+            <th>{{ trns('title') }}</th>
+            <th>{{ trns('description') }}</th>
+            <th>{{ trns('url') }}</th>
+            <th>{{ trns('image') }}</th>
+            <th>{{ trns('category') }}</th>
+            <th>{{ trns('sort_order') }}</th>
+            <th>{{ trns('partner_id') }}</th>
             <th>{{ trns('Actions') }}</th>
           </tr>
         </thead>
@@ -153,6 +160,13 @@ $(document).ready(function () {
                     return `<input type="checkbox" class="row-checkbox" value="${data}">`;
                 }
             },
+            { data: 'title', name: 'title' },
+            { data: 'description', name: 'description' },
+            { data: 'url', name: 'url' },
+            { data: 'image', name: 'image' },
+            { data: 'category', name: 'category' },
+            { data: 'sort_order', name: 'sort_order' },
+            { data: 'partner_id', name: 'partner_id' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],
 
@@ -258,10 +272,30 @@ $(document).ready(function () {
 
 });
 
-function deleteUser(id) {
-    if (!confirm("Are you sure you want to delete this user?")) return;
-    toastr.info("Delete functionality not implemented");
-}
+    // Delete Record
+    $(document).on('click', '.delete-confirm', function() {
+        var url = $(this).data('url'); 
+        if(confirm('{{ trns("Are_you_sure?") }}')) {
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                data: {
+                    "_token": "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    if (response.status) {
+                        toastr.success('{{ trns("Deleted_Successfully") }}');
+                        table.ajax.reload();
+                    } else {
+                        toastr.error('{{ trns("Something_went_wrong") }}');
+                    }
+                },
+                error: function(xhr) {
+                    toastr.error('{{ trns("Something_went_wrong") }}');
+                }
+            });
+        }
+    });
 </script>
 
 
@@ -298,11 +332,9 @@ function deleteUser(id) {
             });
         });
 
-
-
         $(document).on("change", "#statusSelection", function() {
             let status = $(this).val();
-            let table = $('#dataTable').DataTable();
+            let table = $('#usersTable').DataTable();
 
             table.rows().every(function() {
                 var row = this.node();

@@ -17,41 +17,54 @@
                 <div class="row m-3">
 
                     <div class="col-5">
-                        <label class="form-label" for="name">{{ trns('name') }}</label>
-                        <input value="{{ $obj->name }}" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
+                        <label class="form-label" for="title">{{ trns('title') }}</label>
+                        <input value="{{ $obj->title }}" type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"
                             required>
                     </div>
 
                     <div class="col-5">
-                        <label class="form-label" for="link">{{ trns('link') }}</label>
-                        <input value="{{ $obj->link }}" type="text" class="form-control" id="link" name="link" value="{{ old('link') }}"
+                        <label class="form-label" for="url">{{ trns('url') }}</label>
+                        <input value="{{ $obj->url }}" type="text" class="form-control" id="url" name="url" value="{{ old('url') }}"
+                            >
+                    </div>
+
+                     <div class="col-5">
+                        <label class="form-label" for="category">{{ trns('category') }}</label>
+                        <input value="{{ $obj->category }}" type="text" class="form-control" id="category" name="category" value="{{ old('category') }}"
                             required>
+                    </div>
+
+                     <div class="col-5">
+                        <label class="form-label" for="sort_order">{{ trns('sort_order') }}</label>
+                        <input value="{{ $obj->sort_order }}" type="number" class="form-control" id="sort_order" name="sort_order" value="{{ old('sort_order') }}"
+                            >
                     </div>
 
                     <div class="col-5">
                         <label class="form-label" for="description">{{ trns('description') }}</label>
-                        <textarea type="text" class="form-control" id="description" name="description" value="{{ old('description') }}"
-                            required>{{ $obj->description }}</textarea>
+                        <textarea type="text" class="form-control" id="description" name="description"
+                            required>{{ old('description', $obj->description) }}</textarea>
                     </div>
 
-                    <div class="col-5">
-                        <label class="form-label" for="status">{{ trns('status') }}</label>
-                        <select class="form-control" id="status" name="status" required>
-                            <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>{{ trns('active') }}
-                            </option>
-                            <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>
-                                {{ trns('inactive') }}</option>
+                     <div class="col-5">
+                        <label class="form-label" for="partner_id">{{ trns('partner') }}</label>
+                        <select class="form-control" id="partner_id" name="partner_id">
+                            <option value="">{{ trns('select_partner') }}</option>
+                            @foreach ($partners as $partner)
+                                <option value="{{ $partner->id }}"
+                                    {{ (old('partner_id') ?? $obj->partner_id) == $partner->id ? 'selected' : '' }}>
+                                    {{ $partner->name }}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <div class="col-5">
                         <label class="form-label" for="collaboration">{{ trns('collaboration') }}</label>
-                        <select class="form-control" id="collaborator_ids" name="collaborator_ids[]" required multiple>
-                            <option value="active" multiple>{{ trns('select_collaboration') }}</option>
+                        <select class="form-control" id="collaborator_ids" name="collaborator_ids[]" multiple>
                             @foreach ($collaborations as $item)
                                 <option value="{{ $item->id }}"
-                                    {{ old('collaborator_ids') && in_array($item->id, old('collaborator_ids')) ? 'selected' : '' }}>
-                                    {{ trns($item->name) }}</option>
+                                    {{ (collect(old('collaborator_ids'))->contains($item->id)) || $obj->collaborators->contains($item->id) ? 'selected' : '' }}>
+                                    {{ $item->name }}</option>
                             @endforeach
                         </select>
                     </div>

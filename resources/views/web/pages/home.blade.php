@@ -217,8 +217,46 @@
                             <h3>CONTACT Us</h3>
                             <div class="heading-border-light"></div>
                             <p></p>
+
+                            <div class="row mt-5">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="contact-cont2">
+                                        <div class="contact-phone contact-side-desc contact-box-desc">
+                                            <h3><i class="fa fa-phone cl-atlantis fa-2x"></i> Phone</h3>
+                                            <p>+2001282119707</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="contact-cont2">
+                                        <div class="contact-mail row contact-side-desc contact-box-desc">
+                                            <div class="col-md-6">
+                                                <h3><i class="fa fa-envelope-o cl-atlantis fa-2x"></i> Email</h3>
+                                                <address class="address-details-f">
+                                                    Email: <a href="mailto:info@themsbit.com"
+                                                        class="">kariemibrahiem110@gmail.com</a>
+                                                </address>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-inline social-icon-f top-data">
+                                                    <li><a href="https://www.facebook.com/kemo.ibrahem.98/"
+                                                            target="_empty"><i class="fa top-social fa-facebook"
+                                                                style="color: #4267b2; border-color:#4267b2;"></i></a>
+                                                    </li>
+                                                    <li><a href="mailto:kariemibrahiem110@gmail.com" target="_empty"><i
+                                                                class="fa top-social fa-google-plus"
+                                                                style="color: #e24343; border-color:#e24343;"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row con-form">
+                        <!-- <div class="row con-form">
                             <div class="col-md-12">
                                 <input type="text" name="full-name" placeholder="Full Name" class="form-control">
                             </div>
@@ -233,31 +271,9 @@
                             </div>
                             <div class="col-md-12 sub-but"><button class="btn btn-general btn-white"
                                     role="button">Send</button></div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="col-md-4 col-sm-12 mt-5">
-                        <div class="contact-cont2">
-                            <div class="contact-phone contact-side-desc contact-box-desc">
-                                <h3><i class="fa fa-phone cl-atlantis fa-2x"></i> Phone</h3>
-                                <p>+2001282119707</p>
-                            </div>
-                            <div class="contact-mail contact-side-desc contact-box-desc">
-                                <h3><i class="fa fa-envelope-o cl-atlantis fa-2x"></i> Email</h3>
-                                <address class="address-details-f">
-                                    Email: <a href="mailto:info@themsbit.com"
-                                        class="">kariemibrahiem110@gmail.com</a>
-                                </address>
-                                <ul class="list-inline social-icon-f top-data">
-                                    <li><a href="https://www.facebook.com/kemo.ibrahem.98/" target="_empty"><i
-                                                class="fa top-social fa-facebook"
-                                                style="color: #4267b2; border-color:#4267b2;"></i></a></li>
-                                    <li><a href="mailto:kariemibrahiem110@gmail.com" target="_empty"><i
-                                                class="fa top-social fa-google-plus"
-                                                style="color: #e24343; border-color:#e24343;"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
 

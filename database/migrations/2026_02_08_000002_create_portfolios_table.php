@@ -14,6 +14,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('url')->nullable();
             $table->string('image');
+            $table->unsignedBigInteger('partner_id')->nullable();
             $table->string('category');
             $table->integer('sort_order')->default(0);
             $table->timestamps();
