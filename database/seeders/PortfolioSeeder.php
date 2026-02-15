@@ -9,7 +9,9 @@ class PortfolioSeeder extends Seeder
 {
     public function run(): void
     {
+        \Illuminate\Support\Facades\Schema::disableForeignKeyConstraints();
         Portfolio::truncate();
+        \Illuminate\Support\Facades\Schema::enableForeignKeyConstraints();
 
         Portfolio::create([
             'title' => 'Edarat',
