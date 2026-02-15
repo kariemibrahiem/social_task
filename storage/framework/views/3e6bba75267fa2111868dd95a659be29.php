@@ -48,8 +48,8 @@
 
             <!-- ABOUT -->
             <section class="resume-section p-3 p-lg-5 d-flex d-column marginMain" id="about">
-                <div class="my-auto">
-                    <img src="<?php echo e(asset('web/img/logo-s.png')); ?>" class="img-fluid mb-3" alt="">
+                <div class="my-auto mt-5">
+                    <img src="<?php echo e(asset('web/img/logo-s.png')); ?>" class="img-fluid mb-3 mt-5" alt="">
                     <h1 class="mb-0"><?php echo e(trns('kariem')); ?>
 
                         <span class="text-primary"><?php echo e(trns('ibrahiem')); ?></span>
@@ -131,14 +131,14 @@
                         <div class="mb-5 heading-border"></div>
                     </div>
                     <div class="col-md-12">
-                        <div class="port-head-cont">
+                        <!-- <div class="port-head-cont">
                             <button class="btn btn-general btn-green filter-b" data-filter="all">All</button>
                             <button class="btn btn-general btn-green filter-b" data-filter="consulting">Web
                                 Design</button>
                             <button class="btn btn-general btn-green filter-b" data-filter="finance">Mobile Apps</button>
                             <button class="btn btn-general btn-green filter-b" data-filter="marketing">Graphics
                                 Design</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="row my-auto">
