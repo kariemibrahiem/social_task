@@ -50,6 +50,23 @@ return [
         ]
     ],
     (object)[
+        'name' => 'Post',
+        'icon' => 'bx bx-user',
+        'url' => 'posts.index',
+        "permissions" => "posts_read",
+        'slug' => 'posts',
+        'submenu' => [
+            (object)[
+                'name' => 'Post',
+                'url' => 'posts.index',
+                "permissions" => "posts_read",
+                'slug' => 'posts',
+            ],
+        ]
+
+
+    ],
+    (object)[
         'name' => 'role',
         'icon' => 'bx bx-user',
         'url' => 'Role.index',
@@ -64,6 +81,7 @@ return [
             ],
         ]
     ],
+
     (object)[
         'name' => 'settings',
         'icon' => 'bx bx-cog',
@@ -79,4 +97,36 @@ return [
             ],
         ]
     ],
+
+    (object)[
+        'name' => 'Comments',
+        'icon' => 'bx bx-user',
+        'url' => 'comments.index',
+        "permissions" => "comments_read",
+        'slug' => 'comments',
+        'submenu' => [
+            (object)[
+                'name' => 'Comments',
+                'url' => 'comments.index',
+                "permissions" => "comments_read",
+                'slug' => 'comments',
+            ]
+        ]
+    ],
+    (object)[
+        'name' => 'Connection',
+        'icon' => 'bx bx-user',
+        'url' => 'connections.index',
+        "permissions" => "connections_read",
+        'slug' => 'connections',
+        'submenu' => [
+            (object)[
+                'name' => 'Connection',
+                'url' => 'connections.index',
+                "permissions" => "connections_read",
+                'slug' => 'connections',
+            ],
+        ]
+    ]
+,
 ];

@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             PermissionSeeder::class,
+            UserSeeder::class,
+            PostSeeder::class,
+            CommentsSeeder::class,
+            CommentReplySeeder::class,
+            LikeSeeder::class,
+            ConnectionSeeder::class,
         ]);
      
         Admin::create([
@@ -37,7 +43,7 @@ class DatabaseSeeder extends Seeder
             "name" => "user",
             "email" => "user@email.com",
             "password" => "user",
-            "phone" => "01111111111",   
+            "phone" => "011111111223",   
             "image" => "testImage",
             "status" => 1,
         ]);

@@ -14,7 +14,7 @@ class CreateModule extends Command
      *
      * @var string
      */
-    protected $signature = 'make:module {name} {--api}';
+    protected $signature = 'make:module {name} {--api} {--api-only}';
 
     /**
      * The console command description.
@@ -28,13 +28,19 @@ class CreateModule extends Command
         $enumFile    = app_path("Enums/PermissionEnums.php");
         $name        = $this->argument('name');
         $isApi       = $this->option('api');
+        $isApiOnly   = $this->option('api-only');
         $modelName   = Str::studly($name);
         $serviceName = "{$modelName}Service";
         $controller  = "{$modelName}Controller";
         $requestName = "{$modelName}Request";
         $folderName  = strtolower(Str::snake($modelName));
 
-        if (!$isApi) {
+        if ($isApiOnly) {
+            $this->createApiController($modelName, $serviceName, $controller);
+            $this->createService($modelName);
+            $this->createRequest($modelName);
+            $this->addApiRoutes($modelName, $folderName);
+        } else if (!$isApi) {
             $this->createModel($modelName);
             $this->createMigration($name, $modelName);
             $this->createController($modelName, $serviceName);
@@ -186,7 +192,7 @@ class CreateModule extends Command
             return;
         }
 
-        $slugName  = $folderName."s";
+        $slugName  = $folderName . "s";
         $permissionName = strtolower($modelName) . "s";
         $labelName = Str::headline($modelName);
         $menuHeader = Str::headline($modelName) . " Management";
@@ -626,7 +632,7 @@ EOT;
     }
 
 
-    
+
 
     private function addResourceRoute($modelName, $folderName)
     {
@@ -667,7 +673,4 @@ EOT;
             $this->error("Could not find auth:admin group in routes/web.php");
         }
     }
-
-
-
 }

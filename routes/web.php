@@ -92,7 +92,28 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
             ->name('Role.destroySelected');
 
         Route::resource('settings', \App\Http\Controllers\Admin\SettingController::class);
-    });
+
+        Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
+        Route::post('/posts/updateColumnSelected', [\App\Http\Controllers\Admin\PostController::class, 'updateColumnSelected'])
+            ->name('posts.updateColumnSelected');
+        Route::post('/posts/destroySelected', [\App\Http\Controllers\Admin\PostController::class, 'destroySelected'])
+            ->name('posts.destroySelected');
+        Route::get('/posts/{id}/likes', [\App\Http\Controllers\Admin\PostController::class, 'getLikes'])->name('posts.likes');
+
+        Route::resource('comments', \App\Http\Controllers\Admin\CommentsController::class);
+        Route::post('/comments/updateColumnSelected', [\App\Http\Controllers\Admin\CommentsController::class, 'updateColumnSelected'])
+            ->name('comments.updateColumnSelected');
+        Route::post('/comments/destroySelected', [\App\Http\Controllers\Admin\CommentsController::class, 'destroySelected'])
+            ->name('comments.destroySelected');
+    
+    Route::resource('connections', \App\Http\Controllers\Admin\ConnectionController::class);
+    Route::post('/connections/updateColumnSelected', [\App\Http\Controllers\Admin\ConnectionController::class, 'updateColumnSelected'])
+        ->name('connections.updateColumnSelected');
+    Route::post('/connections/destroySelected', [\App\Http\Controllers\Admin\ConnectionController::class, 'destroySelected'])
+        ->name('connections.destroySelected');
+
+
+});
 
 
 
