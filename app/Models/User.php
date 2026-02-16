@@ -22,9 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         "image",
-        "email_id",
         "phone",
-        "code",
         "status"
     ];
 
@@ -47,8 +45,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    public function UserMail(){
-        return $this->belongsTo(UserMail::class , "email_id");
-    }
 }

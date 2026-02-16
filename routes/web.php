@@ -67,7 +67,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 
     Route::group(["middleware" => "auth:admin"], function () {
-        Route::get('/admin', [Analytics::class, 'index'])->name('dashboard-analytics');
+        Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
         Route::get('change_language/{id}', [SettingController::class, 'changeLanguage'])->name('change_language');
         Route::post('/user/updateColumnSelected', [UserController::class, 'updateColumnSelected'])->name('users.updateColumnSelected');
         Route::resource("users", UserController::class);
@@ -90,27 +90,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
             ->name('Role.updateColumnSelected');
         Route::post('/Role/destroySelected', [\App\Http\Controllers\Admin\RoleController::class, 'destroySelected'])
             ->name('Role.destroySelected');
-
-
-
-        Route::resource('partnerss', \App\Http\Controllers\Admin\PartnersController::class);
-        Route::post('/partnerss/updateColumnSelected', [\App\Http\Controllers\Admin\PartnersController::class, 'updateColumnSelected'])
-            ->name('partnerss.updateColumnSelected');
-        Route::post('/partnerss/destroySelected', [\App\Http\Controllers\Admin\PartnersController::class, 'destroySelected'])
-            ->name('partnerss.destroySelected');
-
-        Route::resource('collaborations', \App\Http\Controllers\Admin\CollaborationController::class);
-        Route::post('/collaborations/updateColumnSelected', [\App\Http\Controllers\Admin\CollaborationController::class, 'updateColumnSelected'])
-            ->name('collaborations.updateColumnSelected');
-        Route::post('/collaborations/destroySelected', [\App\Http\Controllers\Admin\CollaborationController::class, 'destroySelected'])
-            ->name('collaborations.destroySelected');
-
-        Route::resource('Backprojects', \App\Http\Controllers\Admin\ProjectController::class);
-        Route::post('/Backprojects/updateColumnSelected', [\App\Http\Controllers\Admin\ProjectController::class, 'updateColumnSelected'])
-            ->name('Backprojects.updateColumnSelected');
-        Route::post('/Backprojects/destroySelected', [\App\Http\Controllers\Admin\ProjectController::class, 'destroySelected'])
-            ->name('Backprojects.destroySelected');
-
 
         Route::resource('settings', \App\Http\Controllers\Admin\SettingController::class);
     });

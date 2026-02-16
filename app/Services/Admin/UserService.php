@@ -16,7 +16,7 @@
         protected string $folder = 'content.users';
         protected string $route = 'users';
 
-        public function __construct(protected User $objModel, protected Mail $mail , protected \App\Models\UserMail $userMail)
+        public function __construct(protected User $objModel)
         {
             parent::__construct($objModel);
         }
@@ -28,9 +28,7 @@
 
                     return DataTables::of($query)
                         ->editColumn('name', fn($obj) => $obj->name)
-                        ->editColumn('email', function($obj) {
-                            return $obj->UserMail ? $obj->UserMail->email : '';
-                        })
+                        ->editColumn('email', fn($obj) => $obj->email)
                         ->editColumn('created_at', fn($obj) => $obj->created_at->format("Y-m-d"))
                         ->editColumn('status', fn($obj) => $this->statusDatatable($obj))
                         ->addColumn('action', function ($obj) {
@@ -89,23 +87,13 @@
                 if ($request->hasFile('image')) {
                     $path = $this->handleFile($request->file('image'), $this->route, 'image');
                     $request['newImage'] = $path;
-                }
-
-               if($request->has("email")){
-                    $mail = $this->userMail->create([
-                        "email" => $request->email,
-                        "otp" => rand(100000, 999999),
-                        "verified_at" => now(),
-                    ]);
-                    $request->merge(['email_id' => $mail->id]);
-                }   
+                } 
                 
 
                 $request['status'] = 0;
 
                 $this->objModel->create([
                     "name" => $request->name,
-                    "email_id" => $request->email_id,
                     "password" => $request->password,
                     "code" => $request->code,
                     "email" => $request->email,
@@ -143,10 +131,6 @@
                     $path = $this->handleFile($request->file('image'), $this->route, 'image');
                     $request->merge(['newImage' => $path]);
                 }
-
-                $user->userMail()->update([
-                    "email" => $request->email ?? $user->UserMail->email,
-                ]);
 
                 $user->update([
                     "name" => $request->name ?? $user->name,

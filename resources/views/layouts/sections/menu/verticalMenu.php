@@ -64,4 +64,19 @@ return [
             ],
         ]
     ],
+    (object)[
+        'name' => 'settings',
+        'icon' => 'bx bx-cog',
+        'url' => 'settings.index',
+        "permissions" => "role_read",
+        'slug' => 'settings',
+        'submenu' => [
+            (object)[
+                'name' => 'settings',
+                'url' => 'settings.index',
+                "permissions" => "role_read",
+                'slug' => 'settings',
+            ],
+        ]
+    ],
 ];
