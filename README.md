@@ -1,7 +1,9 @@
 # Social Platform (Laravel)
 
 A basic social networking platform built with Laravel.
-
+ url: 
+ http://127.0.0.1:8000/auth/login-basic // admin login 
+ http://127.0.0.1:8000/ // user view 
 Features:
 - User profiles (name, email, image, phone, status)
 - Posts (text + optional image)
