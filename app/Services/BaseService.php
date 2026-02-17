@@ -85,7 +85,7 @@ abstract class BaseService
         $acceptBtnDisabled = "<button disabled class='btn btn-success' data-id='{$obj->id}'>
             " . trns('accepted') . "
                </button>";
-        
+
         $rejectBtn = "<button class='btn btn-danger refuse_reason_btn' data-refuse-id='{$obj->id}' name='rejectBtn'   data-bs-toggle='modal' data-bs-target='#refuse_reason_modal'>
        " . ($obj->{$column} == AdConfirmationEnum::REJECTED->value ? trns('rejected') : trns('reject')) . "
             </button>";
@@ -154,7 +154,7 @@ abstract class BaseService
 
     function handleFile($file, $folder = null, $type = 'image')
     {
-        return saveImage($file, $folder, $type);
+        return $this->saveImage($file, $folder, $type);
     }
 
     public function handleFiles($files, $folder = null)
@@ -174,8 +174,7 @@ abstract class BaseService
 
     public function uploadImage($image, $folder = null)
     {
-
-        return $image->store('uploads/ ' . $folder, 'public');
+        return $this->saveImage($image, $folder ?? 'uploads');
     }
 
     public function updateData(int $id, array $data)
@@ -189,7 +188,7 @@ abstract class BaseService
         $model = $this->getById($id);
 
         if ($model) {
-            
+
             if (isset($model->image)) {
                 $this->deleteFile($model->image);
             }
@@ -238,12 +237,12 @@ abstract class BaseService
 
     protected function deleteAssociatedFiles(Model $model): void
     {
-        
+
         if (!empty($model->image)) {
             $this->deleteFile($model->image);
         }
 
-        $fields = ['images', 'files']; 
+        $fields = ['images', 'files'];
         foreach ($fields as $field) {
             if (!empty($model->{$field})) {
                 foreach ($model->{$field} as $file) {
@@ -354,14 +353,14 @@ abstract class BaseService
         $path = base_path('.env');
 
         if (file_exists($path)) {
-            
+
             $envContent = file_get_contents($path);
 
             if (strpos($envContent, "{$key}=") !== false) {
-                
+
                 $envContent = preg_replace("/^{$key}=.*/m", "{$key}={$value}", $envContent);
             } else {
-                
+
                 $envContent .= "\n{$key}={$value}";
             }
 
@@ -387,19 +386,19 @@ abstract class BaseService
     {
 
         try {
-        $ids = $request->input('ids');
-        if (is_array($ids) && count($ids)) {
-            foreach ($ids as $id) {
-                $obj = $this->getById($id);
-                if (is_array($values)) {
-                    $obj->{$column} == $values[0] ? $obj->{$column} = $values[1] : $obj->{$column} = $values[0];
-                } else {
-                    $obj->{$column} = !$obj->{$column};
+            $ids = $request->input('ids');
+            if (is_array($ids) && count($ids)) {
+                foreach ($ids as $id) {
+                    $obj = $this->getById($id);
+                    if (is_array($values)) {
+                        $obj->{$column} == $values[0] ? $obj->{$column} = $values[1] : $obj->{$column} = $values[0];
+                    } else {
+                        $obj->{$column} = !$obj->{$column};
+                    }
+                    $obj->save();
                 }
-                $obj->save();
+                return response()->json(['status' => 200, 'message' => trns('updated_successfully')]);
             }
-            return response()->json(['status' => 200, 'message' => trns('updated_successfully')]);
-        }
         } catch (\Exception $e) {
             return response()->json(['status' => 500, 'message' => trns('something_went_wrong')]);
         }
@@ -430,9 +429,9 @@ abstract class BaseService
             $instance->clearMediaCollection($collectionName);
         }
 
-        $modelType = strtolower(class_basename($instance)); 
+        $modelType = strtolower(class_basename($instance));
         $modelId = $instance->id;
-        $basePath = "{$modelType}/{$modelId}/{$collectionName}"; 
+        $basePath = "{$modelType}/{$modelId}/{$collectionName}";
 
         $fullPath = storage_path("app/public/{$basePath}");
         if (!file_exists($fullPath)) {
@@ -454,12 +453,12 @@ abstract class BaseService
     {
         $extension = $file->getClientOriginalExtension();
         $uuidFileName = Str::uuid()->toString() . '.' . $extension;
-        $file->storeAs("public/{$basePath}", $uuidFileName); 
-        
+        $file->storeAs("public/{$basePath}", $uuidFileName);
+
         $instance
             ->copyMedia(storage_path("app/public/{$basePath}/{$uuidFileName}"))
             ->usingFileName($uuidFileName)
-            ->withCustomProperties(['manual_path' => $basePath , "admin_id"=>auth()->user()->id])
+            ->withCustomProperties(['manual_path' => $basePath, "admin_id" => auth()->user()->id])
             ->toMediaCollection($collectionName, 'public');
     }
 
@@ -498,7 +497,7 @@ abstract class BaseService
                 $image->save($path, 80);
             }
         } catch (\Exception $e) {
-            
+
             \Log::error("Image optimization failed: " . $e->getMessage());
         }
     }

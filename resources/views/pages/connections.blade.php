@@ -3,7 +3,7 @@
 @section('content')
 <div class="trending-area fix pt-25 gray-bg">
     <div class="container">
-        
+
         <div class="row mb-5">
             <div class="col-lg-12">
                 <div class="section-tittle mb-30">
@@ -16,7 +16,7 @@
                             <div class="follow-us d-flex align-items-center mb-2">
                                 <div class="follow-social">
                                     @if($connection->sender->image)
-                                    <img src="{{ asset('storage/' . $connection->sender->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                    <img src="{{ imageUrl($connection->sender->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                     @else
                                     <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                     @endif
@@ -62,7 +62,7 @@
                             <div class="follow-us d-flex align-items-center mb-2">
                                 <div class="follow-social">
                                     @if($connection->receiver->image)
-                                    <img src="{{ asset('storage/' . $connection->receiver->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                    <img src="{{ imageUrl($connection->receiver->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                     @else
                                     <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                     @endif

@@ -493,7 +493,7 @@
             <li class="d-flex mb-4 pb-1">
               <div class="avatar flex-shrink-0 me-3">
                 @if($user->image)
-                <img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->name }}" class="rounded" style="width:38px;height:38px;object-fit:cover;">
+                <img src="{{ imageUrl($user->image) }}" alt="{{ $user->name }}" class="rounded" style="width:38px;height:38px;object-fit:cover;">
                 @else
                 <span class="avatar-initial rounded bg-label-primary">
                   {{ strtoupper(substr($user->name, 0, 1)) }}

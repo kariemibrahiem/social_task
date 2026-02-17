@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 
 class WebPostController extends Controller
 {
+    use PhotoTrait;
+
     public function store(Request $request)
     {
         $request->validate([
@@ -18,7 +21,7 @@ class WebPostController extends Controller
         $path = null;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('posts', 'public');
+            $path = $this->saveImage($request->file('image'), 'posts');
         }
 
         Post::create([

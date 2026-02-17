@@ -19,17 +19,17 @@
         <div class="col-5">
           <label class="form-label" for="name">{{ trns('username') }}</label>
           <input type="text" class="form-control" id="name" name="name"
-                 value="{{ old('name', $obj->name) }}" required>
+            value="{{ old('name', $obj->name) }}" required>
         </div>
 
         <div class="col-5">
           <label class="form-label" for="image">{{ trns('image') }}</label>
           <input class="form-control" type="file" accept="image/*" id="image" name="image">
           @if($obj->image)
-            <div class="mt-2">
-              <img src="{{ asset($obj->image) }}" alt="Current Image"
-                   class="rounded" width="100">
-            </div>
+          <div class="mt-2">
+            <img src="{{ imageUrl($obj->image) }}" alt="Current Image"
+              class="rounded" width="100">
+          </div>
           @endif
         </div>
 

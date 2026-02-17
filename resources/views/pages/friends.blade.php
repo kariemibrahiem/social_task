@@ -15,7 +15,7 @@
                             <div class="follow-us d-flex align-items-center">
                                 <div class="follow-social">
                                     @if($friend->image)
-                                    <img src="{{ asset('storage/' . $friend->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                    <img src="{{ imageUrl($friend->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                     @else
                                     <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                     @endif
