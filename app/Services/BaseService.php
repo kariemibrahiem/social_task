@@ -266,7 +266,7 @@ abstract class BaseService
 
     function imageDataTable($image): string
     {
-        $imagePath = $image ? getFile($image) : getFile('assets/uploads/empty.png');
+        $imagePath = $image ? getFile($image) : getFile('assets/img/empty.webp');
 
         return '<img src="' . $imagePath . '" 
                      onclick="window.open(\'' . $imagePath . '\')" 
