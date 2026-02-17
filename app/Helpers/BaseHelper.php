@@ -27,7 +27,7 @@ if (!function_exists('copyable_text')) {
 }
 
 if (!function_exists('getFile')) {
-    function getFile($image, $default = 'assets/uploads/empty.jpg')
+    function getFile($image, $default = 'assets/img/empty.webp')
     {
         if (str_starts_with($image, 'https://')) {
             return $image;
@@ -60,7 +60,7 @@ if (!function_exists('saveImage')) {
 }
 
 if (!function_exists('imageFromStorage')) {
-    function imageFromStorage($image, $default = 'assets/uploads/empty.jpg')
+    function imageFromStorage($image, $default = 'assets/img/empty.webp')
     {
         if (!$image) {
             return asset($default);
@@ -81,7 +81,7 @@ if (!function_exists('imageFromStorage')) {
 }
 
 if (!function_exists('imageUrl')) {
-    function imageUrl(?string $path, string $fallback = 'assets/uploads/empty.jpg'): string
+    function imageUrl(?string $path, string $fallback = 'assets/img/empty.webp'): string
     {
         if (empty($path)) {
             return asset($fallback);
@@ -91,17 +91,25 @@ if (!function_exists('imageUrl')) {
             return $path;
         }
 
-        $path = ltrim($path, '/');
-
-        if (str_starts_with($path, 'public/')) {
-            $path = substr($path, 7);
+        $cleanPath = ltrim($path, '/');
+        if (str_starts_with($cleanPath, 'public/')) {
+            $cleanPath = substr($cleanPath, 7);
         }
 
-        if (str_starts_with($path, 'storage/')) {
-            return asset($path);
+        $storagePath = $cleanPath;
+        if (str_starts_with($storagePath, 'storage/')) {
+            $storagePath = substr($storagePath, 8);
         }
 
-        return asset('storage/' . $path);
+        if (Storage::disk('public')->exists($storagePath)) {
+            return asset('storage/' . $storagePath);
+        }
+
+        if (file_exists(public_path($cleanPath))) {
+            return asset($cleanPath);
+        }
+
+        return asset($fallback);
     }
 }
 
@@ -286,7 +294,7 @@ if (!function_exists('checkVariable')) {
 if (!function_exists('noImage')) {
     function noImage(): string
     {
-        return asset('assets/uploads/empty.png');
+        return asset('assets/img/empty.webp');
     }
 }
 

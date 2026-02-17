@@ -26,7 +26,7 @@ trait PhotoTrait
         return 'storage/' . $path;
     }
 
-    function imageUrl(?string $path, string $fallback = 'assets/uploads/empty.jpg'): string
+    function imageUrl(?string $path, string $fallback = 'assets/img/empty.webp'): string
     {
         if (empty($path)) {
             return asset($fallback);
@@ -36,16 +36,24 @@ trait PhotoTrait
             return $path;
         }
 
-        $path = ltrim($path, '/');
-
-        if (str_starts_with($path, 'public/')) {
-            $path = substr($path, 7);
+        $cleanPath = ltrim($path, '/');
+        if (str_starts_with($cleanPath, 'public/')) {
+            $cleanPath = substr($cleanPath, 7);
         }
 
-        if (str_starts_with($path, 'storage/')) {
-            return asset($path);
+        $storagePath = $cleanPath;
+        if (str_starts_with($storagePath, 'storage/')) {
+            $storagePath = substr($storagePath, 8);
         }
 
-        return asset('storage/' . $path);
+        if (Storage::disk('public')->exists($storagePath)) {
+            return asset('storage/' . $storagePath);
+        }
+
+        if (file_exists(public_path($cleanPath))) {
+            return asset($cleanPath);
+        }
+
+        return asset($fallback);
     }
 }

@@ -9,17 +9,18 @@ use Illuminate\Support\Facades\File;
 if (!function_exists('getFile')) {
     function getFile($image)
     {
-        if (str_starts_with($image, 'https://')) {
+        $default = 'assets/img/empty.webp';
+        if (str_starts_with($image, 'https://') || str_starts_with($image, 'http://')) {
             return $image;
         } elseif ($image != null) {
             $relativePath = str_replace('storage/', '', $image);
             if (Storage::disk('public')->exists($relativePath)) {
                 return asset('storage/' . $relativePath);
             } else {
-                return asset('assets/uploads/empty.png');
+                return asset($default);
             }
         } else {
-            return asset('assets/uploads/empty.png');
+            return asset($default);
         }
     }
 }
@@ -149,7 +150,7 @@ if (!function_exists('trns')) {
             File::put($path, "<?php\n\nreturn [];\n");
         }
         $translations = include $path;
-        
+
         $value = ucwords(str_replace('_', ' ', $key));
 
         if (!array_key_exists($key, $translations)) {
@@ -1009,14 +1010,14 @@ if (!function_exists('GetCount')) {
             return $model->whereYear("created_at", Carbon::now()->year)->count();
         }
 
-        $modelClass = 'App\\Models\\' . $model;  
+        $modelClass = 'App\\Models\\' . $model;
 
         if (class_exists($modelClass)) {
             $modelInstance = new $modelClass;
             return $modelInstance->whereYear('created_at', Carbon::now()->year)->count();
         }
 
-        return 0;  
+        return 0;
     }
 
     if (!function_exists('GetOneCount')) {
@@ -1026,15 +1027,14 @@ if (!function_exists('GetCount')) {
                 return $model->where("vendor_id", $id)->whereYear("created_at", Carbon::now()->year)->count();
             }
 
-            $modelClass = 'App\\Models\\' . $model;  
+            $modelClass = 'App\\Models\\' . $model;
 
             if (class_exists($modelClass)) {
                 $modelInstance = new $modelClass;
                 return $modelInstance->where("vendor_id", $id)->whereYear('created_at', Carbon::now()->year)->count();
             }
 
-            return 0;  
+            return 0;
         }
     }
-
 }

@@ -1,5 +1,5 @@
 {
-  "name": "laravel/laravel",
+  "name": "kariem/social-task",
   "type": "project",
   "description": "The skeleton application for the Laravel framework.",
   "keywords": [
@@ -10,6 +10,7 @@
   "require": {
     "php": "^8.2",
     "buglinjo/laravel-webp": "^3.1",
+    "darkaonline/l5-swagger": "^10.1",
     "fortawesome/font-awesome": "^7.0",
     "google/apiclient": "2.15",
     "guzzlehttp/guzzle": "^7.10",
