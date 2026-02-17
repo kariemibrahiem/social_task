@@ -42,6 +42,8 @@ cp .env.example .env
 
 php artisan key:generate
 
+
+
 ------------------------------------------------------------
 DATABASE CONFIGURATION
 ------------------------------------------------------------
@@ -136,6 +138,12 @@ API requests require header:
 
 Authorization: Bearer <TOKEN>
 
+
+------------------------------------------------------------
+postman collection
+------------------------------------------------------------
+
+inside the root file of the project with name social_postman_collection
 ------------------------------------------------------------
 API STRUCTURE
 ------------------------------------------------------------
