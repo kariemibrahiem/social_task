@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\ApiTrait;
 use App\Models\User;
 use App\Traits\FirebaseNotification;
+use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Exception;
 
 class UserController extends Controller
 {
-    use ApiTrait, FirebaseNotification;
+    use ApiTrait, FirebaseNotification, PhotoTrait;
 
     protected User $user;
 
@@ -32,7 +33,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        
+
         $user = $this->user->find($id);
 
         if (!$user) {
@@ -56,7 +57,7 @@ class UserController extends Controller
 
             $path = $user->image;
             if ($request->hasFile('image')) {
-                $path = $request->file('image')->store("users", "public");
+                $path = $this->saveImage($request->file('image'), 'users');
             }
 
             $user->update([

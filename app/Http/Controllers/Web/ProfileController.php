@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+    use PhotoTrait;
     public function edit()
     {
         $user = Auth::user();
@@ -23,7 +25,6 @@ class ProfileController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email,' . $user->id,
             'phone'    => 'nullable|string|unique:users,phone,' . $user->id,
-            'status'   => 'nullable|string',
             'image'    => 'nullable|image|max:2048',
             'password' => 'nullable|min:6|confirmed',
         ]);
@@ -31,11 +32,9 @@ class ProfileController extends Controller
         $user->name   = $request->name;
         $user->email  = $request->email;
         $user->phone  = $request->phone;
-        $user->status = $request->status;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('users', 'public');
-            $user->image = 'storage/' . $path;
+            $user->image = $this->saveImage($request->file('image'), 'users');
         }
 
         if ($request->filled('password')) {

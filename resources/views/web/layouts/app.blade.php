@@ -123,7 +123,7 @@
                                 <span class="d-block">{{ $admin->phone }}</span>
                             </div>
                             <div>
-                                <img src="{{ $admin->image ? asset($admin->image) : asset('news-master/assets/img/logo/logo.png') }}"
+                                <img src="{{ $admin->image ? imageUrl($admin->image) : asset('news-master/assets/img/logo/logo.png') }}"
                                     alt="Admin"
                                     class="rounded-circle"
                                     style="width: 50px; height: 50px; object-fit: cover; border: 2px solid #fff;">

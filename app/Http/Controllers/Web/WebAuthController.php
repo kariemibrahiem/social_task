@@ -19,9 +19,9 @@ class WebAuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (auth()->attempt($credentials)) {
+        $user = \App\Models\User::where('email', $credentials['email'])->first();
+        if ($user && $user->status == 1 && auth()->attempt($credentials)) {
             $request->session()->regenerate();
-
             return redirect()->route('front.home');
         }
 

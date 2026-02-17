@@ -47,16 +47,12 @@
                             <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone', $user->phone) }}" style="height: 50px; border-radius: 5px;">
                         </div>
 
-                        <div class="form-group mb-20">
-                            <label for="status"><strong>Status</strong></label>
-                            <input type="text" name="status" id="status" class="form-control" value="{{ old('status', $user->status) }}" style="height: 50px; border-radius: 5px;">
-                        </div>
 
                         <div class="form-group mb-20">
                             <label for="image"><strong>Profile Image</strong></label>
                             @if ($user->image)
                             <div class="mb-10">
-                                <img src="{{ asset($user->image) }}" alt="Current Image" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;">
+                                <img src="{{ imageUrl($user->image) }}" alt="Current Image" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;">
                             </div>
                             @endif
                             <input type="file" name="image" id="image" class="form-control" accept="image/*">

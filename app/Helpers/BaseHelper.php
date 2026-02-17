@@ -11,7 +11,7 @@ if (!function_exists('copyable_text')) {
     function copyable_text($text)
     {
         $escapedText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
-        if(!empty($escapedText)){
+        if (!empty($escapedText)) {
             return <<<HTML
                         <button
                             type="button"
@@ -26,62 +26,87 @@ if (!function_exists('copyable_text')) {
     }
 }
 
-    if (!function_exists('getFile')) {
-        function getFile($image, $default = 'assets/uploads/empty.jpg')
-        {
-            if (str_starts_with($image, 'https://')) {
-                return $image;
-            } elseif ($image != null) {
-                $relativePath = str_replace('storage/', '', $image);
-                if (\Illuminate\Support\Facades\Storage::disk('public')->exists($relativePath)) {
-                    return asset('storage/' . $relativePath);
-                } else {
-                    return asset($default);
-                }
+if (!function_exists('getFile')) {
+    function getFile($image, $default = 'assets/uploads/empty.jpg')
+    {
+        if (str_starts_with($image, 'https://')) {
+            return $image;
+        } elseif ($image != null) {
+            $relativePath = str_replace('storage/', '', $image);
+            if (\Illuminate\Support\Facades\Storage::disk('public')->exists($relativePath)) {
+                return asset('storage/' . $relativePath);
             } else {
                 return asset($default);
             }
-        }
-    }
-
-    if (!function_exists('saveImage')) {
-        function saveImage(UploadedFile $file, string $folder, string $type = 'image')
-        {
-            Storage::disk('public')->makeDirectory($folder);
-
-            $extension = $file->getClientOriginalExtension();
-            $file_name = uniqid() . time() . '.' . $extension;
-            $path = $folder . '/' . $file_name;
-
-            $file->move(storage_path('app/public/' . $folder), $file_name);
-
-            return 'storage/' . $path;
-        }
-    }
-
-    if (!function_exists('imageFromStorage')) {
-        function imageFromStorage($image, $default = 'assets/uploads/empty.jpg')
-        {
-            if (!$image) {
-                return asset($default);
-            }
-
-            if (str_starts_with($image, 'http://') || str_starts_with($image, 'https://')) {
-                return $image;
-            }
-
-            $relativePath = str_replace('storage/', '', $image);
-
-            if (Storage::disk('public')->exists($relativePath)) {
-                return asset('storage/' . $relativePath);
-            }
-
+        } else {
             return asset($default);
         }
     }
+}
+
+if (!function_exists('saveImage')) {
+    function saveImage(UploadedFile $file, string $folder, string $type = 'image')
+    {
+        Storage::disk('public')->makeDirectory($folder);
+
+        $extension = $file->getClientOriginalExtension();
+        $file_name = uniqid() . time() . '.' . $extension;
+        $path = $folder . '/' . $file_name;
+
+        $file->move(storage_path('app/public/' . $folder), $file_name);
+
+        return 'storage/' . $path;
+    }
+}
+
+if (!function_exists('imageFromStorage')) {
+    function imageFromStorage($image, $default = 'assets/uploads/empty.jpg')
+    {
+        if (!$image) {
+            return asset($default);
+        }
+
+        if (str_starts_with($image, 'http://') || str_starts_with($image, 'https://')) {
+            return $image;
+        }
+
+        $relativePath = str_replace('storage/', '', $image);
+
+        if (Storage::disk('public')->exists($relativePath)) {
+            return asset('storage/' . $relativePath);
+        }
+
+        return asset($default);
+    }
+}
+
+if (!function_exists('imageUrl')) {
+    function imageUrl(?string $path, string $fallback = 'assets/uploads/empty.jpg'): string
+    {
+        if (empty($path)) {
+            return asset($fallback);
+        }
+
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        $path = ltrim($path, '/');
+
+        if (str_starts_with($path, 'public/')) {
+            $path = substr($path, 7);
+        }
+
+        if (str_starts_with($path, 'storage/')) {
+            return asset($path);
+        }
+
+        return asset('storage/' . $path);
+    }
+}
 
 if (!function_exists('statusDatatable')) {
-     function statusDatatable($obj)
+    function statusDatatable($obj)
     {
         return '
                     <div class="form-check form-switch">
@@ -170,7 +195,7 @@ if (!function_exists('trns')) {
             File::put($path, "<?php\n\nreturn [];\n");
         }
         $translations = include $path;
-        
+
         $value = ucwords(str_replace('_', ' ', $key));
 
         if (!array_key_exists($key, $translations)) {
@@ -211,7 +236,7 @@ if (!function_exists('arrRouteActive')) {
         $currentRoute = Route::currentRouteName();
 
         foreach ($routesName as $route) {
-            
+
             if ($currentRoute === $route) {
                 return $class;
             }
@@ -314,7 +339,7 @@ if (!function_exists('helperJson')) {
 if (!function_exists('cleanContent')) {
     function cleanContent($content)
     {
-        
+
         return str_replace(['```html', '```'], '', $content);
     }
 }
@@ -6869,7 +6894,7 @@ function font_icons_v6()
     ];
 }
 
- function checkIfModelHasRecords(string $modelClass, string $column, mixed $value): bool
+function checkIfModelHasRecords(string $modelClass, string $column, mixed $value): bool
 {
     if (!class_exists($modelClass)) {
         throw new \Exception("Model $modelClass does not exist.");

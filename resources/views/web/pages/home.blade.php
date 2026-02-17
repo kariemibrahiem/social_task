@@ -28,7 +28,7 @@
                                 <div class="whats-news-single mb-40">
                                     <div class="whates-img">
                                         @if($post->image)
-                                        <img src="{{ asset($post->image) }}" alt="" style="width: 100%; height: auto;">
+                                        <img src="{{ imageUrl($post->image) }}" alt="" style="width: 100%; height: auto;">
                                         @endif
                                     </div>
                                     <div class="whates-caption">
@@ -36,7 +36,7 @@
 
                                         <div class="d-flex align-items-center mb-2">
                                             @if($post->user->image)
-                                            <img src="{{ asset($post->user->image) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                                            <img src="{{ imageUrl($post->user->image) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
                                             @else
                                             <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
                                             @endif
@@ -71,7 +71,7 @@
                                                     <div class="user justify-content-between d-flex w-100">
                                                         <div class="thumb">
                                                             @if($comment->user->image)
-                                                            <img src="{{ asset($comment->user->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                            <img src="{{ imageUrl($comment->user->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
                                                             @else
                                                             <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 50px;">
                                                             @endif
@@ -103,7 +103,7 @@
                                                         <div class="user justify-content-between d-flex w-100">
                                                             <div class="thumb">
                                                                 @if($comment->user->image)
-                                                                <img src="{{ asset($comment->user->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                                <img src="{{ imageUrl($comment->user->image) }}" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
                                                                 @else
                                                                 <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 50px;">
                                                                 @endif
@@ -210,7 +210,7 @@
                         <div class="most-recent mb-40">
                             <div class="most-recent-img">
                                 @if($post->image)
-                                <img src="{{ asset($post->image) }}" alt="">
+                                <img src="{{ imageUrl($post->image) }}" alt="">
                                 @else
 
                                 @endif
@@ -248,7 +248,7 @@
                                         <div class="weekly2-single">
                                             <div class="weekly2-img">
                                                 @if($user->image)
-                                                <img src="{{ asset($user->image) }}" alt="" style="width: 100%; height: 200px; object-fit: cover;">
+                                                <img src="{{ imageUrl($user->image) }}" alt="" style="width: 100%; height: 200px; object-fit: cover;">
                                                 @else
                                                 <img src="{{ asset('news-master/assets/img/comment/comment_1.png') }}" alt="" style="width: 100%; height: 200px; object-fit: cover;">
                                                 @endif
