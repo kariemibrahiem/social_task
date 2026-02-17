@@ -44,7 +44,6 @@ class Translate extends Command
             return;
         }
 
-        // الملف العربي
         $langFile = resource_path('lang/ar/file.php');
 
         if (!File::exists($langFile)) {
@@ -53,7 +52,6 @@ class Translate extends Command
 
         $translations = include($langFile);
 
-        // Translator instance
         $tr = new GoogleTranslate('ar');
         $tr->setSource('en');
 
@@ -65,14 +63,13 @@ class Translate extends Command
                     $translations[$key] = $translated;
                     $this->info("➕ Added: {$key} => {$translated}");
                 } catch (\Exception $e) {
-                    $translations[$key] = $key; // fallback
+                    $translations[$key] = $key; 
                     $this->error("⚠️ Failed to translate: {$key}");
                 }
                 $newKeys++;
             }
         }
 
-        // إعادة بناء الملف
         $content = "<?php\n\nreturn [\n";
         foreach ($translations as $k => $v) {
             $content .= "    '" . addslashes($k) . "' => '" . addslashes($v) . "',\n";

@@ -63,41 +63,7 @@ return [
                 'slug' => 'posts',
             ],
         ]
-
-
     ],
-    (object)[
-        'name' => 'role',
-        'icon' => 'bx bx-user',
-        'url' => 'Role.index',
-        "permissions" => "role_read",
-        'slug' => 'role',
-        'submenu' => [
-            (object)[
-                'name' => 'role',
-                'url' => 'Role.index',
-                "permissions" => "role_read",
-                'slug' => 'Role',
-            ],
-        ]
-    ],
-
-    (object)[
-        'name' => 'settings',
-        'icon' => 'bx bx-cog',
-        'url' => 'settings.index',
-        "permissions" => "role_read",
-        'slug' => 'settings',
-        'submenu' => [
-            (object)[
-                'name' => 'settings',
-                'url' => 'settings.index',
-                "permissions" => "role_read",
-                'slug' => 'settings',
-            ],
-        ]
-    ],
-
     (object)[
         'name' => 'Comments',
         'icon' => 'bx bx-user',
@@ -127,6 +93,22 @@ return [
                 'slug' => 'connections',
             ],
         ]
-    ]
-,
+    ],
+    (object)[
+        'name' => 'role',
+        'icon' => 'bx bx-user',
+        'url' => 'Role.index',
+        "permissions" => "role_read",
+        'slug' => 'role',
+        'submenu' => [
+            (object)[
+                'name' => 'role',
+                'url' => 'Role.index',
+                "permissions" => "role_read",
+                'slug' => 'Role',
+            ],
+        ]
+    ],
+
+
 ];

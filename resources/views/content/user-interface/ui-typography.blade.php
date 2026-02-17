@@ -8,7 +8,7 @@
 </h4>
 
 <div class="row">
-  <!-- Headings -->
+  
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header">Headings</h5>
@@ -54,7 +54,7 @@
       </table>
     </div>
   </div>
-  <!-- Customizing headings -->
+  
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header">Customizing Headings <small class="text-muted ms-1">Default</small></h5>
@@ -103,7 +103,7 @@
 </div>
 
 <div class="row">
-  <!-- Display headings -->
+  
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header">Display headings</h5>
@@ -149,7 +149,7 @@
       </table>
     </div>
   </div>
-  <!-- Paragraph -->
+  
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header">Paragraph</h5>
@@ -190,7 +190,7 @@
 </div>
 
 <div class="row">
-  <!-- Inline text elements -->
+  
   <div class="col">
     <div class="card mb-4">
       <h5 class="card-header">Inline Text Elements</h5>
@@ -260,7 +260,7 @@
 </div>
 
 <div class="row">
-  <!-- Blockquote -->
+  
   <div class="col-lg">
     <div class="card mb-4 mb-lg-0">
       <h5 class="card-header">Blockquote</h5>

@@ -1,7 +1,7 @@
 @extends('layouts/contentNavbarLayout')
 
 @push('styles')
-<!-- Bootstrap 5 CSS -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 @endpush
 
@@ -13,7 +13,7 @@
 </h4>
 
 <div class="row g-4">
-    <!-- Profile Card -->
+    
     <div class="col-lg-4">
         <div class="card shadow-sm">
             <div class="card-body text-center">
@@ -29,7 +29,6 @@
         </div>
     </div>
 
-    <!-- Information Card -->
     <div class="col-lg-8">
         <div class="card shadow-sm">
             <div class="card-header bg-light fw-bold">
@@ -60,7 +59,6 @@
     </div>
 </div>
 
-<!-- Modal -->
 <div class="modal fade" id="editOrCreate" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -69,7 +67,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ trns('Close') }}"></button>
             </div>
             <div class="modal-body" id="modal-body">
-                <!-- Ajax loaded content -->
+                
             </div>
         </div>
     </div>
@@ -77,7 +75,7 @@
 @endsection
 
 @push('scripts')
-<!-- Bootstrap 5 JS Bundle (includes Popper) -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Providers;
 
 use Illuminate\Support\Facades\View;
@@ -8,7 +9,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //
+        
     }
 
     public function boot(): void
@@ -22,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('userProvider', $userProvider);
+        });
+
+        View::composer('web.layouts.app', function ($view) {
+            $admin = \App\Models\Admin::first();
+            $view->with('admin', $admin);
         });
     }
 }

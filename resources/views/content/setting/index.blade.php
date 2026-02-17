@@ -13,14 +13,12 @@
             @csrf
             @method('PUT')
 
-            {{-- Site Name --}}
             <div class="mb-3">
                 <label class="form-label">{{ trns('Site Name') }}</label>
                 <input type="text" name="name" class="form-control"
                     value="{{ $siteName->value ?? '' }}" required>
             </div>
 
-            {{-- Logo --}}
             <div class="mb-3">
                 <label class="form-label">{{ trns('Logo') }}</label><br>
 

@@ -9,8 +9,6 @@
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Toasts</h4>
 
-
-<!-- Toast with Placements -->
 <div class="bs-toast toast toast-placement-ex m-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
   <div class="toast-header">
     <i class='bx bx-bell me-2'></i>
@@ -22,9 +20,7 @@
     Fruitcake chocolate bar tootsie roll gummies gummies jelly beans cake.
   </div>
 </div>
-<!-- Toast with Placements -->
 
-<!-- Bootstrap Toasts with Placement -->
 <div class="card mb-4">
   <h5 class="card-header">Bootstrap Toasts Example With Placement</h5>
   <div class="card-body">
@@ -62,9 +58,7 @@
     </div>
   </div>
 </div>
-<!--/ Bootstrap Toasts with Placement -->
 
-<!-- Bootstrap Toasts Styles -->
 <div class="card mb-4">
   <h5 class="card-header">Bootstrap Toasts Styles</h5>
   <div class="row g-0">
@@ -273,5 +267,5 @@
     </div>
   </div>
 </div>
-<!--/ Bootstrap Toasts Styles -->
+
 @endsection

@@ -9,7 +9,6 @@
     </span> {{ trns($route) }}
 </h4>
 
-
 <style>
     select[name="usersTable_length"] {
         margin-top: 10px;
@@ -20,7 +19,6 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
-
 
     /* Container for DataTables search */
     .dataTables_filter {
@@ -67,7 +65,6 @@
 
 <hr class="my-5" />
 
-<!-- Card -->
 <div class="card">
     <h5 class="card-header d-flex justify-content-between align-items-center flex-wrap">
         <div class="d-flex align-items-center mb-2 mb-md-0">
@@ -85,12 +82,10 @@
             </ul>
         </div>
         <div>
-            <!-- <button class="btn btn-success" id="bulkStatusUpdate">{{trns("Update_Selected")}}</button>
-      <button class="btn btn-danger" id="deleteSelected">{{ trns("Delete_Selected") }}</button>
-      <a href="{{ route($route . '.create') }}" class="btn btn-primary">{{ trns('Add_New') }} {{ $route }}</a> -->
+            
         </div>
     </h5>
-    <!-- Delete Selected Modal -->
+    
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -109,7 +104,6 @@
         </div>
     </div>
 
-    <!-- View Comment Modal -->
     <div class="modal fade" id="viewCommentModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -150,15 +144,14 @@
 @endsection
 
 @push('scripts')
-<!-- DataTables CSS/JS -->
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 
-<!-- Toastr -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<!-- Bootstrap 5 JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
@@ -267,7 +260,6 @@
             });
         });
 
-
         // Bulk Delete
         $('#deleteSelected').on('click', function() {
             const selected = $('.row-checkbox:checked').map(function() {
@@ -309,8 +301,6 @@
             });
         });
 
-
-
         /* View Comment Modal Handler */
         $(document).on('click', '.view-comment-content', function() {
             var content = $(this).data('content');
@@ -326,7 +316,6 @@
         toastr.info("Delete functionality not implemented");
     }
 </script>
-
 
 <script>
     // for status
@@ -361,8 +350,6 @@
         });
     });
 
-
-
     $(document).on("change", "#statusSelection", function() {
         let status = $(this).val();
         let table = $('#dataTable').DataTable();
@@ -380,7 +367,5 @@
         });
     });
 </script>
-
-
 
 @endpush

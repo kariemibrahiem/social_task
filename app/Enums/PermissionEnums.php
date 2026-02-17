@@ -16,27 +16,6 @@ enum PermissionEnums: string
     case COMMENTSs = "comments";
     case CONNECTIONs = "connections";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function label(): string
     {
         return trns($this->value);

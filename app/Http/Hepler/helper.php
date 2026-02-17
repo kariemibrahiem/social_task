@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 
-
 if (!function_exists('getFile')) {
     function getFile($image)
     {
@@ -25,14 +24,12 @@ if (!function_exists('getFile')) {
     }
 }
 
-
 if (!function_exists('getStatics')) {
     function getStatics($model, $key, $value)
     {
         return $model::where($key, $value)->count();
     }
 }
-
 
 if (!function_exists('vendor_has_module')) {
     function vendor_has_module($module_id)
@@ -46,7 +43,6 @@ if (!function_exists('vendor_has_module')) {
         }
     }
 }
-
 
 if (!function_exists('getFileWithName')) {
     function getFileWithName($name): string
@@ -124,7 +120,6 @@ if (!function_exists('lang')) {
     }
 }
 
-
 if (!function_exists('flang')) {
 
     function flang($en, $ar)
@@ -135,7 +130,6 @@ if (!function_exists('flang')) {
             return $en;
     }
 }
-
 
 if (!function_exists('trans_model')) {
 
@@ -151,18 +145,16 @@ if (!function_exists('trns')) {
     {
         $path = resource_path("lang/en/file.php");
 
-        // Ensure the language file exists
         if (!File::exists($path)) {
             File::put($path, "<?php\n\nreturn [];\n");
         }
         $translations = include $path;
-        // Convert key to human-readable format
+        
         $value = ucwords(str_replace('_', ' ', $key));
 
         if (!array_key_exists($key, $translations)) {
             $translations[$key] = $value;
 
-            // Save the translations back to the file
             $exported = var_export($translations, true);
             File::put($path, "<?php\n\nreturn {$exported};\n");
             return trans('file.' . $key);
@@ -189,11 +181,6 @@ if (!function_exists('latAndLong')) {
         ];
     }
 }
-
-
-
-
-
 
 function get_font_icons()
 {
@@ -969,7 +956,6 @@ function get_font_icons()
     return $icons;
 }
 
-
 if (!function_exists('get_user_file')) {
     function get_user_file($image)
     {
@@ -984,7 +970,6 @@ if (!function_exists('get_user_file')) {
         }
     }
 }
-
 
 if (!function_exists('get_file')) {
     function get_file($image)
@@ -1024,14 +1009,14 @@ if (!function_exists('GetCount')) {
             return $model->whereYear("created_at", Carbon::now()->year)->count();
         }
 
-        $modelClass = 'App\\Models\\' . $model;  // Fixed string concatenation
+        $modelClass = 'App\\Models\\' . $model;  
 
         if (class_exists($modelClass)) {
             $modelInstance = new $modelClass;
             return $modelInstance->whereYear('created_at', Carbon::now()->year)->count();
         }
 
-        return 0;  // Added default return
+        return 0;  
     }
 
     if (!function_exists('GetOneCount')) {
@@ -1041,31 +1026,15 @@ if (!function_exists('GetCount')) {
                 return $model->where("vendor_id", $id)->whereYear("created_at", Carbon::now()->year)->count();
             }
 
-            $modelClass = 'App\\Models\\' . $model;  // Fixed string concatenation
+            $modelClass = 'App\\Models\\' . $model;  
 
             if (class_exists($modelClass)) {
                 $modelInstance = new $modelClass;
                 return $modelInstance->where("vendor_id", $id)->whereYear('created_at', Carbon::now()->year)->count();
             }
 
-            return 0;  // Added default return
+            return 0;  
         }
     }
 
-    // if (!function_exists('getSettingImage')) {
-    //     function getSettingImage($key)
-    //     {
-    //         $data = GeneralSetting::where('vendor_id', auth('vendor')->user()->id)->where('key', $key)->first();
-    //         return $data ? $data->value : '-';
-    //     }
-    // }
-
-
-    // if (!function_exists(function: 'getAdminSettingImage')) {
-    //     function getAdminSettingImage($key)
-    //     {
-    //         $data = GeneralSetting::where('key', $key)->first();
-    //         return $data ? $data->value : null;
-    //     }
-    // }
 }

@@ -44,17 +44,3 @@ class AdminRequest extends FormRequest
         ];
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

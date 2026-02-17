@@ -17,7 +17,7 @@ class SettingService extends BaseService
 
     public function index($request)
     {
-        // جلب أو إنشاء الإعدادات الأساسية
+        
         $siteName = ObjModel::firstOrCreate(
             ['key' => 'site_name'],
             ['value' => 'My Website']
@@ -32,14 +32,14 @@ class SettingService extends BaseService
             'siteName' => $siteName,
             'logo' => $logo,
             'route' => $this->route,
-            'updateRoute' => route("{$this->route}.update", 1), // رقم عشوائي لأننا مش بنستخدم الـ id فعلاً
+            'updateRoute' => route("{$this->route}.update", 1), 
         ]);
     }
 
     public function update($data, $id)
     {
         try {
-            // تحديث أو إنشاء اسم الموقع
+            
             if (isset($data['name'])) {
                 ObjModel::updateOrCreate(
                     ['key' => 'site_name'],
@@ -47,7 +47,6 @@ class SettingService extends BaseService
                 );
             }
 
-            // تحديث أو إنشاء اللوجو
             if (isset($data['logo'])) {
                 $logoPath = $this->handleFile($data['logo'], 'settings');
                 ObjModel::updateOrCreate(

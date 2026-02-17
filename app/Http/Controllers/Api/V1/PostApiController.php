@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest as ObjRequest;
 use App\Http\Resources\PostResource;
+use App\Http\Traits\ApiTrait;
 use App\Models\Post as ObjModel;
 use Illuminate\Http\Request;
 
 class PostApiController extends Controller
 {
+        use ApiTrait;
+
     public function __construct(protected ObjModel $objModel){}
     public function getData()
     {
@@ -74,12 +77,5 @@ class PostApiController extends Controller
         }
     }
 
-    private function successResponse($data =[] , $status = 200, $message = "تمت العملية بنجاح"){
-        return response()->json(['status' => $status, 'message' => $message, 'data' => $data]);
-    }
-
-    private function errorResponse($message = "حدث خطأ ما.", $status = 500, $error = null){
-        return response()->json(['status' => $status, 'message' => $message, 'error' => $error]);
-    }
 
 }

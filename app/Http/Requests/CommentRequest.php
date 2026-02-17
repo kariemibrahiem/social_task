@@ -20,17 +20,30 @@ class CommentRequest extends FormRequest
         }
     }
 
+    protected function prepareForValidation()
+    {
+        $userId = auth('sanctum')->id() ?? auth()->id(); 
+        $this->merge([
+            'user_id' => $userId,
+        ]);
+    }
+
     protected function store(): array
     {
         return [
-
+            'post_id' => 'required|exists:posts,id',
+            'content' => 'required|string',
+            'file'    => 'nullable|file|max:10240', 
+            'user_id' => 'required|exists:users,id',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'content' => 'required|string',
+            'file'    => 'nullable|file|max:10240',
+            'user_id' => 'required|exists:users,id',
         ];
     }
 }

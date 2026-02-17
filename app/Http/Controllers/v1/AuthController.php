@@ -1,23 +1,21 @@
 <?php
+
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\ApiTrait;
 use App\Models\coupon;
 use App\Models\User;
-use App\Models\UserMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
     use ApiTrait;
-    
-    public function __construct(protected User $objmodel , protected UserMail $emailModel)
-    {
-    
-    }
+
+    public function __construct(protected User $objmodel) {}
 
     public function login(Request $request)
     {
@@ -33,26 +31,23 @@ class AuthController extends Controller
 
         return $this->errorResponse('Invalid credentials', 401);
     }
-    
+
     public function regist(Request $request)
     {
-        try{
-            $this->validate($request , [
+        try {
+            $this->validate($request, [
                 "email" => "required|email|unique:users,email"
             ]);
-        
+
             $user = $this->objmodel->where('email', $request->email)->first();
-            
-            if($user){
+
+            if ($user) {
                 return $this->errorResponse('User already exists', 409);
             }
 
-        $otp = rand(100000, 999999);
-            $this->emailModel->updateOrCreate(
-                ["email" => $request->email],
-                ["otp" => $otp, "verified_at" => null , "exp_date" => now()->addMinutes(10)]
-            );
+            $otp = rand(100000, 999999);
 
+            Cache::put('otp_' . $request->email, ['otp' => $otp, 'expires_at' => now()->addMinutes(10)], 600);
 
             Mail::send("content.mails.forgotPassword", ["otp" => $otp], function ($message) use ($request) {
                 $message->to($request->email);
@@ -62,7 +57,7 @@ class AuthController extends Controller
             return $this->successResponse([
                 "email" => $request->email,
             ], 'otp send successfully');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return $this->errorResponse('Unable to send OTP email. Please try again later.', 500);
         }
     }
@@ -77,29 +72,26 @@ class AuthController extends Controller
             "coupon" => "nullable|exists:coupons,code"
         ]);
 
-        $mailRecord = $this->emailModel->where('email', $request->email)->first();
+        $cachedOtp = Cache::get('otp_' . $request->email);
 
-        if (!$mailRecord) {
-            return $this->errorResponse('Email not found', 404);
+        if (!$cachedOtp) {
+            return $this->errorResponse('OTP not found or expired', 404);
         }
 
         try {
             DB::beginTransaction();
 
-            if (!($mailRecord->otp && (int)$mailRecord->otp === (int)$request->otp && $mailRecord->exp_date >= now())) {
+            if ((int)$cachedOtp['otp'] !== (int)$request->otp || now()->gt($cachedOtp['expires_at'])) {
                 DB::rollBack();
                 return $this->errorResponse('Invalid or expired OTP', 401);
             }
 
-            $mailRecord->verified_at = now();
-            $mailRecord->otp = null;
-            $mailRecord->save();
+            Cache::forget('otp_' . $request->email);
 
             $user = $this->objmodel->create([
                 "name" => $request->name,
                 "email" => $request->email,
                 "password" => bcrypt($request->password),
-                "email_id" => $mailRecord->id
             ]);
 
             if ($request->filled("coupon")) {
@@ -132,7 +124,6 @@ class AuthController extends Controller
                 "user" => $user,
                 "token" => $token
             ], 'OTP is valid');
-
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -142,8 +133,6 @@ class AuthController extends Controller
             return $this->errorResponse($message, $code);
         }
     }
-
-
 
     public function logout(Request $request)
     {

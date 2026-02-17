@@ -34,7 +34,6 @@
                             value="{{ old('phone', $obj->phone) }}" required>
                     </div>
 
-
                     <div class="col-5">
                         <label class="form-label" for="image">{{ trns('image') }}</label>
                         <input class="form-control" type="file" id="image" name="image">

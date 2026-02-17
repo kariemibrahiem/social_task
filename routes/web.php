@@ -48,36 +48,26 @@ use App\Http\Controllers\Admin\tables\Basic as TablesBasic;
 use App\Http\Controllers\Admin\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-// (No public homepage added here; frontend routes live in routes/front.php)
-
-// Main Page Route
-
+Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index']);
 
 Route::post("reset-password", [ForgotPasswordController::class, 'resetPassword'])->name("reset-password");
 
-
 Route::get("check-otp", [ForgotPasswordController::class, 'showCheckOtp'])->name("show-check-otp");
-
 
 Route::post("verify-otp", [ForgotPasswordController::class, 'CheckOtp'])->name("verify-otp");
 
-
-
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
-
     Route::group(["middleware" => "auth:admin"], function () {
-        Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
+        Route::get('/auth', [Analytics::class, 'index'])->name('dashboard-analytics');
         Route::get('change_language/{id}', [SettingController::class, 'changeLanguage'])->name('change_language');
         Route::post('/user/updateColumnSelected', [UserController::class, 'updateColumnSelected'])->name('users.updateColumnSelected');
         Route::resource("users", UserController::class);
-
 
         Route::get('/admins/profile', [\App\Http\Controllers\Admin\AdminController::class, 'profile'])->name('admins.profile');
         Route::resource('admins', \App\Http\Controllers\Admin\AdminController::class);
         Route::post('/admins/updateColumnSelected', [\App\Http\Controllers\Admin\AdminController::class, 'updateColumnSelected'])->name('admins.updateColumnSelected');
         Route::post('/admins/destroySelected', [\App\Http\Controllers\Admin\AdminController::class, 'deleteSelected'])->name('admins.destroySelected');
-
 
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::post('/users/updateColumnSelected', [\App\Http\Controllers\Admin\UserController::class, 'updateColumnSelected'])
@@ -93,69 +83,46 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
         Route::resource('settings', \App\Http\Controllers\Admin\SettingController::class);
 
-        Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
         Route::post('/posts/updateColumnSelected', [\App\Http\Controllers\Admin\PostController::class, 'updateColumnSelected'])
             ->name('posts.updateColumnSelected');
         Route::post('/posts/destroySelected', [\App\Http\Controllers\Admin\PostController::class, 'destroySelected'])
             ->name('posts.destroySelected');
         Route::get('/posts/{id}/likes', [\App\Http\Controllers\Admin\PostController::class, 'getLikes'])->name('posts.likes');
+        Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
 
         Route::resource('comments', \App\Http\Controllers\Admin\CommentsController::class);
         Route::post('/comments/updateColumnSelected', [\App\Http\Controllers\Admin\CommentsController::class, 'updateColumnSelected'])
             ->name('comments.updateColumnSelected');
         Route::post('/comments/destroySelected', [\App\Http\Controllers\Admin\CommentsController::class, 'destroySelected'])
             ->name('comments.destroySelected');
-    
-    Route::resource('connections', \App\Http\Controllers\Admin\ConnectionController::class);
-    Route::post('/connections/updateColumnSelected', [\App\Http\Controllers\Admin\ConnectionController::class, 'updateColumnSelected'])
-        ->name('connections.updateColumnSelected');
-    Route::post('/connections/destroySelected', [\App\Http\Controllers\Admin\ConnectionController::class, 'destroySelected'])
-        ->name('connections.destroySelected');
 
+        Route::resource('connections', \App\Http\Controllers\Admin\ConnectionController::class);
+        Route::post('/connections/updateColumnSelected', [\App\Http\Controllers\Admin\ConnectionController::class, 'updateColumnSelected'])
+            ->name('connections.updateColumnSelected');
+        Route::post('/connections/destroySelected', [\App\Http\Controllers\Admin\ConnectionController::class, 'destroySelected'])
+            ->name('connections.destroySelected');
+    });
 
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // layout
     Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
     Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
     Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
     Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
     Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
-    // pages
     Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
     Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name('pages-account-settings-notifications');
     Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
     Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
     Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
 
-    // authentication
     Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
     Route::get("admin.logout", [LoginBasic::class, "logout"])->name("admin.logout");
     Route::post('/auth/login', [LoginBasic::class, 'login'])->name('login');
     Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
     Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
 
-    // cards
     Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
 
-    // User Interface
     Route::get('/ui/accordion', [Accordion::class, 'index'])->name('ui-accordion');
     Route::get('/ui/alerts', [Alerts::class, 'index'])->name('ui-alerts');
     Route::get('/ui/badges', [Badges::class, 'index'])->name('ui-badges');
@@ -176,21 +143,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/ui/tooltips-popovers', [TooltipsPopovers::class, 'index'])->name('ui-tooltips-popovers');
     Route::get('/ui/typography', [Typography::class, 'index'])->name('ui-typography');
 
-    // extended ui
     Route::get('/extended/ui-perfect-scrollbar', [PerfectScrollbar::class, 'index'])->name('extended-ui-perfect-scrollbar');
     Route::get('/extended/ui-text-divider', [TextDivider::class, 'index'])->name('extended-ui-text-divider');
 
-    // icons
     Route::get('/icons/boxicons', [Boxicons::class, 'index'])->name('icons-boxicons');
 
-    // form elements
     Route::get('/forms/basic-inputs', [BasicInput::class, 'index'])->name('forms-basic-inputs');
     Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-input-groups');
 
-    // form layouts
     Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form-layouts-vertical');
     Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
 
-    // tables
     Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
 });

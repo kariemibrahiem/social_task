@@ -15,7 +15,7 @@
       <li class="nav-item"><a class="nav-link" href="{{url('pages/account-settings-connections')}}"><i class="bx bx-link-alt me-1"></i> Connections</a></li>
     </ul>
     <div class="card">
-      <!-- Notifications -->
+      
       <h5 class="card-header">Recent Devices</h5>
       <div class="card-body">
         <span>We need permission from your browser to show notifications. <span class="notificationRequest"><span class="fw-medium">Request Permission</span></span></span>
@@ -124,7 +124,7 @@
           </div>
         </form>
       </div>
-      <!-- /Notifications -->
+      
     </div>
   </div>
 </div>

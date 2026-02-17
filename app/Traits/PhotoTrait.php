@@ -12,13 +12,7 @@ use Illuminate\Http\UploadedFile;
 
 trait PhotoTrait
 {
-    /**
-     * @throws CwebpShellExecutionFailed
-     * @throws ImageMimeNotSupportedException
-     * @throws DriverIsNotSupportedException
-     */
-
-
+    
     function saveImage(UploadedFile $file, string $folder, string $type = 'image')
     {
         Storage::disk('public')->makeDirectory($folder);
@@ -31,6 +25,5 @@ trait PhotoTrait
 
         return 'storage/' . $path;
     }
-
 
 }

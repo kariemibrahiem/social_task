@@ -5,16 +5,12 @@ namespace Database\Seeders;
 use App\Models\Admin;
 
 use App\Models\User;
-use App\Models\UserMail;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+    
     public function run(): void
     {
         $this->call([
@@ -37,8 +33,6 @@ class DatabaseSeeder extends Seeder
             "image" => "testImage"
         ]);
 
-
-
         $user = User::create([
             "name" => "user",
             "email" => "user@email.com",
@@ -47,9 +41,6 @@ class DatabaseSeeder extends Seeder
             "image" => "testImage",
             "status" => 1,
         ]);
-
-
-    
 
         Admin::latest()->first()->assignRole("super_admin");
     }

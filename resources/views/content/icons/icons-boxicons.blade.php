@@ -13,7 +13,6 @@
 
 <p>You can check complete list of box icons from <a href="https://boxicons.com/" target="_blank">https://boxicons.com</a></p>
 
-<!-- Icon container -->
 <div class="d-flex flex-wrap" id="icons-container">
   <div class="card icon-card cursor-pointer text-center  mb-4 mx-2">
     <div class="card-body"> <i class="bx bxl-adobe mb-2"></i>
@@ -137,7 +136,6 @@
   </div>
 </div>
 
-<!-- Buttons -->
 <div class="d-flex justify-content-center mx-auto gap-3">
   <a href="https://boxicons.com/" target="_blank" class="btn btn-primary">View All Icons</a>
   <a href="{{config('variables.documentation')}}/Icons.html" class="btn btn-primary" target="_blank">How to use icons?</a>

@@ -24,7 +24,7 @@ $container = ($container ?? 'container-xxl');
     @if ($isMenu)
     @include('layouts/sections/menu/verticalMenu')
     @endif
-<!-- Font Awesome 6 (latest) -->
+
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   rel="stylesheet"
@@ -40,19 +40,14 @@ $container = ($container ?? 'container-xxl');
 />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- Layout page -->
     <div class="layout-page">
-      <!-- BEGIN: Navbar-->
+      
       @if ($isNavbar)
       @include('layouts/sections/navbar/navbar')
       @endif
-      <!-- END: Navbar-->
-
-
-      <!-- Content wrapper -->
+      
       <div class="content-wrapper" style="margin-left: ;">
 
-        <!-- Content -->
         @if ($isFlex)
         <div class="{{$container}} d-flex align-items-stretch flex-grow-1 p-0" id="content_container_the_rtl">
           @else
@@ -62,32 +57,28 @@ $container = ($container ?? 'container-xxl');
             @yield('content')
 
           </div>
-          <!-- / Content -->
-
-          <!-- Footer -->
+          
           @if ($isFooter)
           @include('layouts/sections/footer/footer')
           @endif
-          <!-- / Footer -->
+          
           <div class="content-backdrop fade"></div>
         </div>
-        <!--/ Content wrapper -->
+        
       </div>
-      <!-- / Layout page -->
+      
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<!-- CSS -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
-<!-- JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-{{-- pusher --}}
   <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
 <script>
   Pusher.logToConsole = true;
@@ -97,8 +88,6 @@ $container = ($container ?? 'container-xxl');
   });
 
 </script>
-
-<!-- swit alert for alert -->
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
@@ -147,19 +136,12 @@ $(document).on('click', '.delete-confirm', function (e) {
 });
 </script>
 
-
-
-<!-- swit alert -->
-
-
-
-
     @if ($isMenu)
-    <!-- Overlay -->
+    
     <div class="layout-overlay layout-menu-toggle"></div>
     @endif
-    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    
     <div class="drag-target"></div>
   </div>
-  <!-- / Layout wrapper -->
+  
   @endsection

@@ -8,8 +8,6 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role as ObjModel;
 use Yajra\DataTables\DataTables;
 
-
-
 class RoleService extends BaseService
 {
     protected string $folder = 'content/Role';
@@ -32,7 +30,6 @@ class RoleService extends BaseService
                 })
                 ->addColumn('action', function ($obj) {
                     $buttons = '';
-
 
                     $buttons .= '
                             <button type="button" data-id="' . $obj->id . '" class="btn btn-pill btn-info-light editBtn">
@@ -97,8 +94,6 @@ class RoleService extends BaseService
     public function update($data, $id)
     {
 
-
-
         try {
             $oldObj = $this->getById($id);
             $permissions = $this->permission->whereIn('id', $data['permission_id'])->select('name')->get()->pluck('name')->toArray();
@@ -116,7 +111,6 @@ class RoleService extends BaseService
     {
         $role = $this->model->find($id);
         $hasUsers = Admin::role($role->name)->exists();
-
 
         if ($hasUsers) {
 

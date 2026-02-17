@@ -5,7 +5,6 @@
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Accordion</h4>
 
-<!-- Accordion -->
 <h5 class="mt-4">Accordion</h5>
 <div class="row">
   <div class="col-md mb-4 mb-md-2">
@@ -107,5 +106,5 @@
     </div>
   </div>
 </div>
-<!--/ Accordion -->
+
 @endsection

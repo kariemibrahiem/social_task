@@ -25,7 +25,6 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Reply واحد بس
     public function reply()
     {
         return $this->hasOne(CommentReply::class);

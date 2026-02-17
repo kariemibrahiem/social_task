@@ -10,7 +10,6 @@
     use Yajra\DataTables\DataTables;
     use Illuminate\Support\Str;
 
-
     class UserService extends BaseService
     {
         protected string $folder = 'content.users';
@@ -54,7 +53,6 @@
                                     </button>';
                             }
 
-
                             return $buttons;
                         })
                         ->editColumn('image', function ($obj) {
@@ -73,8 +71,6 @@
             ]);
         }
 
-
-
         public function create(){
             return view($this->folder . "/partials/create");
         }
@@ -89,7 +85,6 @@
                     $request['newImage'] = $path;
                 } 
                 
-
                 $request['status'] = 0;
 
                 $this->objModel->create([
@@ -149,7 +144,6 @@
             }
         }
 
-
         public function destroy($id){
             try {
                 $user = $this->model->findOrFail($id);
@@ -163,5 +157,4 @@
             }
         }
 
-    
     }

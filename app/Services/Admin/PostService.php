@@ -26,15 +26,6 @@ class PostService extends BaseService
                     $user = Auth::guard('admin')->user();
                     $buttons = '';
 
-                    // if ($user && $user->can("posts_edit")) {
-                    //             $buttons .= '
-                    //                 <a href="' . route($this->route . '.edit', $obj->id) . '" 
-                    //                 class="btn btn-sm btn-primary me-1" 
-                    //                 title="Edit">
-                    //                     <i class="fas fa-pencil-alt"></i>
-                    //                 </a>';
-                    //         }
-
                     if ($user && $user->can("posts_delete")) {
                         $buttons .= '
                                     <button type="button" 

@@ -20,9 +20,6 @@ class AdminController extends Controller
         return $this->successResponse(['date' => now(), 'admins' => $admins]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $this->validate($request , [
@@ -34,9 +31,6 @@ class AdminController extends Controller
         return $this->successResponse(['user' => $user]);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $admin = $this->objmodel->find($id);
@@ -46,9 +40,6 @@ class AdminController extends Controller
         return $this->successResponse(['admin' => $admin]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $admin = $this->objmodel->find($id);
@@ -59,9 +50,6 @@ class AdminController extends Controller
         return $this->successResponse(['admin' => $admin]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $admin = $this->objmodel->find($id);

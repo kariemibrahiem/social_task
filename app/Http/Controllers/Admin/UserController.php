@@ -35,13 +35,10 @@ class UserController extends Controller
         return $this->service->destroy($id);
     }
 
-
     public function updateColumnSelected(Request $request)
     {
         return $this->service->updateColumnSelected($request,'status');
     }
-
-
 
     public function deleteSelected(Request $request){
         return $this->service->deleteSelected($request);

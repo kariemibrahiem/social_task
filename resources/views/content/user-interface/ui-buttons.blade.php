@@ -9,8 +9,7 @@
 </h4>
 
 <div class="row">
-  <!-- Basic Buttons -->
-
+  
   <div class="col-12">
     <div class="card mb-4">
       <h5 class="card-header">Basic Buttons</h5>
@@ -42,8 +41,6 @@
     </div>
   </div>
 
-  <!-- Outline Buttons -->
-
   <div class="col-12">
     <div class="card mb-4">
       <h5 class="card-header">Outline Buttons</h5>
@@ -74,8 +71,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Buttons with Icons -->
 
   <div class="col-12">
     <div class="card mb-4">
@@ -164,7 +159,6 @@
     </div>
   </div>
 
-  <!-- Button Options -->
   <div class="col-12">
     <div class="card mb-4">
       <h5 class="card-header">Button Options</h5>
@@ -200,7 +194,6 @@
     </div>
   </div>
 
-  <!-- Button Plugin -->
   <div class="col-12">
     <div class="card mb-4">
       <h5 class="card-header">Button Plugin</h5>
@@ -234,7 +227,7 @@
           <div class="col-xl-6">
             <div class="text-light small fw-medium">Checkbox and radio</div>
             <div class="demo-vertical-spacing">
-              <!-- Checkbox -->
+              
               <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                 <input type="checkbox" class="btn-check" id="btncheck1" checked>
               <label class="btn btn-outline-primary d-flex flex-column" for="btncheck1"><span class="d-none d-sm-block">Checkbox</span>1 ( pre-checked )</label>
@@ -246,7 +239,7 @@
               <label class="btn btn-outline-primary d-flex flex-column" for="btncheck3"><span class="d-none d-sm-block">Checkbox</span>3</label>
               </div>
               <br />
-              <!-- Radio -->
+              
               <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
                 <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
@@ -262,7 +255,6 @@
     </div>
   </div>
 
-  <!-- Button Group -->
   <div class="col-12">
     <div class="card">
       <h5 class="card-header">Button Group</h5>

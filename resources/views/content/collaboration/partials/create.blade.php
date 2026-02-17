@@ -21,7 +21,6 @@
                             required>
                     </div>
 
-
                     <div class="col-5">
                         <label class="form-label" for="email">{{ trns('email') }}</label>
                         <input class="form-control" type="email" id="email" name="email" value="{{ old('email') }}"
@@ -33,7 +32,6 @@
                         <input class="form-control" type="text" id="phone" name="phone" value="{{ old('phone') }}"
                             required>
                     </div>
-
 
                     <div class="col-5">
                         <label class="form-label" for="image">{{ trns('image') }}</label>

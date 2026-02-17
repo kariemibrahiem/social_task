@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
             $table->text('content');
-            $table->string('image')->nullable(); // optional (post image)
+            $table->string('image')->nullable(); 
 
             $table->timestamps();
         });

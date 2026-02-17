@@ -15,7 +15,6 @@ return new class extends Migration {
 
             $table->timestamps();
 
-            // user يعمل لايك مرة واحدة لنفس البوست
             $table->unique(['post_id', 'user_id']);
         });
     }

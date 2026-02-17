@@ -9,7 +9,6 @@
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI Elements /</span> Cards Basic</h4>
 
-<!-- Examples -->
 <div class="row mb-5">
   <div class="col-md-6 col-lg-4 mb-3">
     <div class="card h-100">
@@ -50,9 +49,7 @@
     </div>
   </div>
 </div>
-<!-- Examples -->
 
-<!-- Content types -->
 <h5 class="pb-1 mb-4">Content types</h5>
 
 <div class="row mb-5">
@@ -173,9 +170,7 @@
     </div>
   </div>
 </div>
-<!--/ Content types -->
 
-<!-- Text alignment -->
 <h5 class="pb-1 mb-4">Text alignment</h5>
 <div class="row mb-5">
   <div class="col-md-6 col-lg-4">
@@ -206,9 +201,7 @@
     </div>
   </div>
 </div>
-<!--/ Text alignment -->
 
-<!-- Images -->
 <h5 class="pb-1 mb-4">Images caps & overlay</h5>
 <div class="row mb-5">
   <div class="col-md-6 col-xl-4">
@@ -255,9 +248,7 @@
     </div>
   </div>
 </div>
-<!--/ Images -->
 
-<!-- Horizontal -->
 <h5 class="pb-1 mb-4">Horizontal</h5>
 <div class="row mb-5">
   <div class="col-md">
@@ -301,9 +292,7 @@
     </div>
   </div>
 </div>
-<!--/ Horizontal -->
 
-<!-- Style variation -->
 <h5 class="pb-1 mb-4">Style variation</h5>
 <div class="row">
   <div class="col-md-6 col-xl-4">
@@ -373,7 +362,7 @@
     </div>
   </div>
 </div>
-<!-- Outline -->
+
 <div class="row">
   <div class="col-md-6 col-xl-4">
     <div class="card shadow-none bg-transparent border border-primary mb-3">
@@ -436,13 +425,9 @@
     </div>
   </div>
 </div>
-<!--/ Style variation -->
 
-
-<!-- Card layout -->
 <h5 class="pb-1 my-5">Card layout</h5>
 
-<!-- Card Groups -->
 <h6 class="pb-1 mb-4 text-muted">Card Groups</h6>
 <div class="card-group mb-5">
   <div class="card">
@@ -485,7 +470,6 @@
   </div>
 </div>
 
-<!-- Grid Card -->
 <h6 class="pb-1 mb-4 text-muted">Grid Card</h6>
 <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
   <div class="col">
@@ -544,7 +528,6 @@
   </div>
 </div>
 
-<!-- Masonry -->
 <h6 class="pb-1 mb-4 text-muted">Masonry</h6>
 <div class="row" data-masonry='{"percentPosition": true }'>
   <div class="col-sm-6 col-lg-4 mb-4">
@@ -626,5 +609,5 @@
     </div>
   </div>
 </div>
-<!--/ Card layout -->
+
 @endsection

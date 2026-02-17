@@ -8,9 +8,6 @@ use App\Models\Notification;
 trait FirebaseNotification
 {
 
-    /**
-     * Send FCM notification to a user or multiple users
-     */
     public function sendFcm(array $data, $user_id = null)
     {
         $apiUrl = 'https://fcm.googleapis.com/v1/projects/travelclup-e8728/messages:send';
@@ -22,7 +19,6 @@ trait FirebaseNotification
             $deviceToken = DeviceToken::where('user_id', $user_id)->first();
             if ($deviceToken) $deviceTokens[] = $deviceToken->token;
 
-            // Save notification in DB for this user
             Notification::create([
                 'title' => $data['title'],
                 'message' => $data['body'],
@@ -48,9 +44,6 @@ trait FirebaseNotification
         return $responses;
     }
 
-    /**
-     * Get Firebase Access Token
-     */
     protected function getAccessToken()
     {
         $credentialsFilePath = storage_path('app/firebase/travelclup-firebase.json');
@@ -62,9 +55,6 @@ trait FirebaseNotification
         return $client->getAccessToken()['access_token'];
     }
 
-    /**
-     * Prepare FCM payload
-     */
     protected function preparePayload(array $data, string $token)
     {
         $message = [
@@ -83,9 +73,6 @@ trait FirebaseNotification
         return json_encode(['message' => $message]);
     }
 
-    /**
-     * Send FCM via cURL
-     */
     protected function sendNotification(string $url, string $accessToken, string $payload)
     {
         $headers = [

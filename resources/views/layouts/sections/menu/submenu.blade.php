@@ -2,7 +2,6 @@
   @if (isset($menu))
     @foreach ($menu as $submenu)
 
-    {{-- active menu method --}}
     @php
       $activeClass = null;
       $active = 'active open';
@@ -38,7 +37,6 @@
           @endisset
         </a>
 
-        {{-- submenu --}}
         @if (isset($submenu->submenu))
           @include('layouts.sections.menu.submenu',['menu' => $submenu->submenu])
         @endif

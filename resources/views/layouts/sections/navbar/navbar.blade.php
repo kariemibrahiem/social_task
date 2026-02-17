@@ -44,7 +44,6 @@ $navbarDetached = ($navbarDetached ?? '');
   @endif
 </style>
 
-<!-- Navbar -->
 @if(isset($navbarDetached) && $navbarDetached == 'navbar-detached')
 <nav class="layout-navbar {{$containerNav}} navbar navbar-expand-xl {{$navbarDetached}} align-items-center bg-navbar-theme" id="layout-navbar">
 @else
@@ -52,7 +51,6 @@ $navbarDetached = ($navbarDetached ?? '');
   <div class="{{$containerNav}}">
 @endif
 
-  <!-- Brand (display only for navbar-full and hidden below xl) -->
   @if(isset($navbarFull))
   <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
     <a href="{{ url('/') }}" class="app-brand-link gap-2">
@@ -64,7 +62,6 @@ $navbarDetached = ($navbarDetached ?? '');
   </div>
   @endif
 
-  <!-- Toggle -->
   @if(!isset($navbarHideToggle))
   <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0{{ isset($menuHorizontal) ? ' d-xl-none ' : '' }} {{ isset($contentNavbar) ? ' d-xl-none ' : '' }}">
     <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
@@ -74,14 +71,7 @@ $navbarDetached = ($navbarDetached ?? '');
   @endif
 
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-    <!-- Search -->
-{{--    <div class="navbar-nav align-items-center">--}}
-{{--      <div class="nav-item d-flex align-items-center">--}}
-{{--        <i class="bx bx-search fs-4 lh-0"></i>--}}
-{{--        <input type="text" class="form-control border-0 shadow-none ps-1 ps-sm-2" placeholder="Search..." aria-label="Search...">--}}
-{{--      </div>--}}
-{{--    </div>--}}
-
+    
       <div class="app-brand demo">
           <a href="{{url('/')}}" class="app-brand-link">
       <span class="app-brand-logo demo">
@@ -95,13 +85,8 @@ $navbarDetached = ($navbarDetached ?? '');
           </a>
       </div>
 
-    <!-- Navbar items -->
     <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-      <!-- Notifications -->
-
-
-      <!-- Language dropdown -->
     <li class="nav-item dropdown ms-2"
         @if(app()->getLocale() == "ar")
             style="z-index: 2000 !important; position: absolute; left: 130px;"
@@ -117,9 +102,6 @@ $navbarDetached = ($navbarDetached ?? '');
       </ul>
     </li>
 
-
-
-      <!-- User dropdown -->
       <li class="nav-item navbar-dropdown dropdown-user dropdown ms-2"
       @if(app()->getLocale() == "ar")
           style=" z-index: 2000 !important; position: absolute; left: 40px;"
@@ -177,16 +159,6 @@ $navbarDetached = ($navbarDetached ?? '');
             </a>
           </li>
 
-{{--          <li>--}}
-{{--            <a class="dropdown-item" href="javascript:void(0);">--}}
-{{--              <span class="d-flex align-items-center align-middle">--}}
-{{--                <i class="flex-shrink-0 bx bx-credit-card me-2 pe-1"></i>--}}
-{{--                <span class="flex-grow-1 align-middle">Billing</span>--}}
-{{--                <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>--}}
-{{--              </span>--}}
-{{--            </a>--}}
-{{--          </li>--}}
-
           <li><div class="dropdown-divider"></div></li>
 
           <li>
@@ -206,7 +178,6 @@ $navbarDetached = ($navbarDetached ?? '');
   @endif
 </nav>
 
-<!-- Bootstrap JS fallback + dropdown initializer -->
 <script>
 (function () {
   function initDropdowns() {

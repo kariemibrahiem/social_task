@@ -11,21 +11,19 @@
   <span class="text-muted fw-light">UI elements /</span> Modals
 </h4>
 
-<!-- Bootstrap modals -->
 <div class="card mb-4">
   <h5 class="card-header">Bootstrap modals</h5>
   <div class="card-body">
     <div class="row gy-3">
-      <!-- Default Modal -->
+      
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">Default</small>
         <div class="mt-3">
-          <!-- Button trigger modal -->
+          
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
             Launch modal
           </button>
 
-          <!-- Modal -->
           <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -61,16 +59,14 @@
         </div>
       </div>
 
-      <!-- Vertically Centered Modal -->
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">Vertically centered</small>
         <div class="mt-3">
-          <!-- Button trigger modal -->
+          
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
             Launch modal
           </button>
 
-          <!-- Modal -->
           <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
@@ -106,16 +102,14 @@
         </div>
       </div>
 
-      <!-- Slide from Top Modal -->
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">Slide from Top</small>
         <div class="mt-3">
-          <!-- Button trigger modal -->
+          
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTop">
             Launch modal
           </button>
 
-          <!-- Modal -->
           <div class="modal modal-top fade" id="modalTop" tabindex="-1">
             <div class="modal-dialog">
               <form class="modal-content">
@@ -155,7 +149,7 @@
   <hr class="m-0">
   <div class="card-body">
     <div class="row gy-3">
-      <!-- Modal with YouTube Video -->
+      
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">YouTube Video</small>
         <div class="mt-3">
@@ -163,7 +157,6 @@
             Launch modal
           </button>
 
-          <!-- Modal -->
           <div class="modal fade" id="youTubeModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -174,7 +167,6 @@
         </div>
       </div>
 
-      <!-- Toggle Between Modals -->
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">Toggle Between Modals</small>
         <div class="mt-3">
@@ -182,7 +174,6 @@
             Launch modal
           </button>
 
-          <!-- Modal 1-->
           <div class="modal fade" id="modalToggle" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -199,7 +190,7 @@
               </div>
             </div>
           </div>
-          <!-- Modal 2-->
+          
           <div class="modal fade" id="modalToggle2" aria-hidden="true" aria-labelledby="modalToggleLabel2" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -219,7 +210,6 @@
         </div>
       </div>
 
-      <!-- Fullscreen Modal -->
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">Fullscreen</small>
         <div class="mt-3">
@@ -227,7 +217,6 @@
             Launch modal
           </button>
 
-          <!-- Modal -->
           <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen" role="document">
               <div class="modal-content">
@@ -287,10 +276,10 @@
   <hr class="m-0">
   <div class="card-body">
     <div class="row gy-3">
-      <!-- Modal Sizes -->
+      
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium">Sizes</small>
-        <!-- Small Modal -->
+        
         <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -323,7 +312,7 @@
             </div>
           </div>
         </div>
-        <!-- Large Modal -->
+        
         <div class="modal fade" id="largeModal" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -356,7 +345,7 @@
             </div>
           </div>
         </div>
-        <!-- Extra Large Modal -->
+        
         <div class="modal fade" id="exLargeModal" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
@@ -404,10 +393,9 @@
         </div>
       </div>
 
-      <!-- Modal Scroll long content -->
       <div class="col-lg-4 col-md-3">
         <small class="text-light fw-medium">Scrolling long content</small>
-        <!-- Modal -->
+        
         <div class="modal fade" id="modalLong" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -460,7 +448,7 @@
             </div>
           </div>
         </div>
-        <!-- Modal -->
+        
         <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
@@ -514,28 +502,25 @@
           </div>
         </div>
         <div class="demo-inline-spacing">
-          <!-- Button trigger modal -->
+          
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLong">
             Option 1
           </button>
 
-          <!-- Button ModalScrollable -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable">
             Option 2
           </button>
         </div>
       </div>
 
-      <!-- Modal Backdrop -->
       <div class="col-lg-4 col-md-3">
         <small class="text-light fw-medium">Backdrop</small>
         <div class="mt-3">
-          <!-- Button trigger modal -->
+          
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">
             Launch modal
           </button>
 
-          <!-- Modal -->
           <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
             <div class="modal-dialog">
               <form class="modal-content">
@@ -573,5 +558,5 @@
     </div>
   </div>
 </div>
-<!--/ Bootstrap modals -->
+
 @endsection

@@ -7,11 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
+    
     public function toArray(Request $request): array
     {
         return [
@@ -21,6 +17,10 @@ class PostResource extends JsonResource
             'created_at' => $this->created_at,
             "user" => new UserResource($this->whenLoaded('user')),
             "comments" => CommentResource::collection($this->whenLoaded('comments')),
+            "likes_count" => $this->likes->count(),
+            "comments_count" => $this->comments->count(),
+            "is_liked" => $this->likes->contains('user_id', auth('user-api')->id()),
+            "is_commented" => $this->comments->contains('user_id', auth('user-api')->id()),
         ];
     }
 }

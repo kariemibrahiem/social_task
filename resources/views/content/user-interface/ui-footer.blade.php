@@ -7,7 +7,6 @@
   <span class="text-muted fw-light">UI elements /</span> Footer
 </h4>
 
-<!-- Basic footer -->
 <section id="basic-footer">
   <h5 class="pb-1 mt-5 mb-4">Basic Footer</h5>
 
@@ -25,10 +24,9 @@
     </div>
   </footer>
 </section>
-<!--/ Basic footer -->
+
 <hr class="container-m-nx my-5" />
 
-<!-- Footer with components -->
 <section id="component-footer">
   <h5 class="pb-1 mb-4">Footer with Elements</h5>
 
@@ -61,5 +59,5 @@
     </div>
   </footer>
 </section>
-<!--/ Footer with components -->
+
 @endsection

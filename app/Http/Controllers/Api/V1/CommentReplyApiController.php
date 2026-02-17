@@ -3,87 +3,122 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CommentReplyRequest as ObjRequest;
-use App\Models\CommentReply as ObjModel;
+use App\Http\Traits\ApiTrait;
+use App\Models\Comment;
+use App\Models\CommentReply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\CommentReply as ObjModel;
 
 class CommentReplyApiController extends Controller
 {
-    public function __construct(protected ObjModel $objModel){}
-    public function getData(Request $request)
+        use ApiTrait;
+
+    public function __construct(protected ObjModel $objModel) {}
+
+    public function store(Request $request)
     {
-        try{
-            if($request->has("comment_id") ){
-                $comment_id = $request['comment_id'];
-                $data = $this->objModel->where("comment_id", $comment_id)->paginate();
-            }else{
-                $user = auth("user-api")->user();
-                $data = $this->objModel->where("user_id", $user->id)->paginate();
+        try {
+            
+            $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+                'comment_id' => 'required|exists:comments,id',
+                'text' => 'required|string'
+            ]);
+
+            if ($validator->fails()) {
+                return $this->errorResponse($validator->errors()->first(), 422, $validator->errors());
             }
-            return $this->successResponse($data, 200, "تمت العملية بنجاح");
-        }catch(\Exception $e){
-            return $this->errorResponse($e->getMessage(), 500, "حدث خطأ ما.");
-        }
-    }
-    public function getById($id)
-    {
-        try{
-            $data = $this->objModel->findOrFail($id);
-            return $this->successResponse($data, 200, "تمت العملية بنجاح");
-        }catch(\Exception $e){
-            return $this->errorResponse($e->getMessage(), 500, "حدث خطأ ما.");
+
+            $comment = Comment::with('post')->findOrFail($request->comment_id);
+            $user = Auth::user();
+
+            if (!$user) {
+                return $this->errorResponse("Unauthenticated", 401);
+            }
+
+            if ($comment->post->user_id !== $user->id) {
+                return $this->errorResponse("Unauthorized. Only the post owner can reply to comments.", 403);
+            }
+
+            if (CommentReply::where('comment_id', $comment->id)->exists()) {
+                return $this->errorResponse("A reply already exists for this comment.", 409);
+            }
+
+            $reply = CommentReply::create([
+                'comment_id' => $comment->id,
+                'user_id' => $user->id,
+                'text' => $request->text
+            ]);
+
+            return $this->successResponse($reply, 201, "تم إضافة الرد بنجاح");
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 500);
         }
     }
 
-    public function store(ObjRequest $request)
+    public function update(Request $request, $id)
     {
-        try{
-            $data = $request->validated();
-            if (isset($data['file'])) {
-                $data['file'] = $this->handleFile($data['file'], 'CommentReply');
-            }
-            $obj = $this->objModel->create($data);
-            return $this->successResponse($obj, 201, "تمت العملية بنجاح");
-        }catch(\Exception $e){
-            return $this->errorResponse($e->getMessage(), 500, "حدث خطأ ما.");
-        }
-    }
+        try {
+            $reply = CommentReply::findOrFail($id);
 
-    public function update(ObjRequest $request, $id)
-    {
-        try{
-            $data = $request->validated();
-            $obj = $this->objModel->findOrFail($id);
-            if (isset($data['file'])) {
-                $data['file'] = $this->handleFile($data['file'], 'CommentReply');
-                if ($obj->file) {
-                    $this->deleteFile($obj->file);
-                }
+            if ($reply->user_id !== Auth::id()) {
+                return $this->errorResponse("Unauthorized.", 403);
             }
-            $obj->update($data);
-            return $this->successResponse($obj, 200, "تمت العملية بنجاح");
-        }catch(\Exception $e){
-            return $this->errorResponse($e->getMessage(), 500, "حدث خطأ ما.");
+
+            $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+                'text' => 'required|string'
+            ]);
+
+            if ($validator->fails()) {
+                return $this->errorResponse($validator->errors()->first(), 422);
+            }
+
+            $reply->update(['text' => $request->text]);
+
+            return $this->successResponse($reply, 200, "تم تحديث الرد بنجاح");
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 500);
         }
     }
 
     public function destroy($id)
     {
-        try{
-            $obj = $this->objModel->findOrFail($id);
-            $obj->delete();
-            return $this->successResponse([], 204, "تمت العملية بنجاح");
-        }catch(\Exception $e){
-            return $this->errorResponse($e->getMessage(), 500, "حدث خطأ ما.");
+        try {
+            $reply = CommentReply::findOrFail($id);
+
+            if ($reply->user_id !== Auth::id()) {
+                return $this->errorResponse("Unauthorized.", 403);
+            }
+
+            $reply->delete();
+            return $this->successResponse([], 200, "تم حذف الرد بنجاح"); 
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 500);
         }
     }
 
-    private function successResponse($data =[] , $status = 200, $message = "تمت العملية بنجاح"){
-        return response()->json(['status' => $status, 'message' => $message, 'data' => $data]);
+    public function myReplies()
+    {
+        try {
+            $user = Auth::user();
+            $replies = CommentReply::with('comment')->where('user_id', $user->id)->get();
+
+            $data = $replies->map(function ($reply) {
+                return [
+                    'id' => $reply->id,
+                    'comment_content' => $reply->comment ? $reply->comment->content : null,
+                    'post_id' => $reply->comment ? $reply->comment->post_id : null,
+                    'text' => $reply->text,
+                    'created_at' => $reply->created_at,
+                    'updated_at' => $reply->updated_at,
+                ];
+            });
+
+            return $this->successResponse($data, 200);
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage(), 500);
+        }
     }
 
-    private function errorResponse($message = "حدث خطأ ما.", $status = 500, $error = null){
-        return response()->json(['status' => $status, 'message' => $message, 'error' => $error]);
-    }
 
 }

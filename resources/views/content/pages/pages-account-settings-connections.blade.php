@@ -20,7 +20,7 @@
           <h5 class="card-header">Connected Accounts</h5>
           <div class="card-body">
             <p>Display content from your connected accounts on your site</p>
-            <!-- Connections -->
+            
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
                 <img src="{{asset('assets/img/icons/brands/google.png')}}" alt="google" class="me-3" height="30">
@@ -101,7 +101,7 @@
                 </div>
               </div>
             </div>
-            <!-- /Connections -->
+            
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@
           <h5 class="card-header">Social Accounts</h5>
           <div class="card-body">
             <p>Display content from social accounts on your site</p>
-            <!-- Social Accounts -->
+            
             <div class="d-flex mb-3">
               <div class="flex-shrink-0">
                 <img src="{{asset('assets/img/icons/brands/facebook.png')}}" alt="facebook" class="me-3" height="30">
@@ -191,7 +191,7 @@
                 </div>
               </div>
             </div>
-            <!-- /Social Accounts -->
+            
           </div>
         </div>
       </div>

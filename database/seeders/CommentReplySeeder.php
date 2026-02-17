@@ -13,7 +13,6 @@ class CommentReplySeeder extends Seeder
         $comment = Comment::with('post')->first();
         if (!$comment || !$comment->post) return;
 
-        // reply by post owner
         CommentReply::updateOrCreate(
             ['comment_id' => $comment->id],
             [

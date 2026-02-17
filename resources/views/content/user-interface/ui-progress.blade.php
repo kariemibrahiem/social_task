@@ -6,7 +6,6 @@
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Progress bars
 </h4>
 
-<!-- Options -->
 <div class="card mb-4">
   <h5 class="card-header">Progress bars</h5>
   <div class="card-body">
@@ -45,9 +44,7 @@
     </div>
   </div>
 </div>
-<!--/ Options -->
 
-<!-- Backgrounds -->
 <div class="card mb-4">
   <h5 class="card-header">Backgrounds</h5>
   <div class="card-body">
@@ -76,9 +73,7 @@
     </div>
   </div>
 </div>
-<!--/ Backgrounds -->
 
-<!-- Striped -->
 <div class="card mb-4">
   <h5 class="card-header">Striped</h5>
   <div class="card-body">
@@ -107,9 +102,7 @@
     </div>
   </div>
 </div>
-<!--/ Striped -->
 
-<!-- Animated -->
 <div class="card mb-4">
   <h5 class="card-header">Animated</h5>
   <div class="card-body">
@@ -138,9 +131,7 @@
     </div>
   </div>
 </div>
-<!--/ Animated -->
 
-<!-- Multiple bars -->
 <div class="card">
   <h5 class="card-header">Multiple bars</h5>
   <div class="card-body">
@@ -166,5 +157,5 @@
     </div>
   </div>
 </div>
-<!--/ Multiple bars -->
+
 @endsection

@@ -6,17 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+    
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     */
     public function rules(): array
     {
         if ($this->isMethod('put') || $this->isMethod('patch')) {
@@ -26,9 +21,6 @@ class UserRequest extends FormRequest
         return $this->storeRules();
     }
 
-    /**
-     * Validation rules for storing a user.
-     */
     protected function storeRules(): array
     {
         return [
@@ -39,9 +31,6 @@ class UserRequest extends FormRequest
         ];
     }
 
-    /**
-     * Validation rules for updating a user.
-     */
     protected function updateRules(): array
     {
         return [

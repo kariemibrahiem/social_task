@@ -1819,7 +1819,7 @@ Stack Trace:
   'teacher' => 'Teacher',
   'content_name' => 'Content Name',
   ', made  by' => ', Made  By',
-  'Matrex' => 'Matrex',
+  'Matrex' => 'news',
   'store fieldPDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column \'email\' in \'field list\' in D:\\projects\\MatrexProjects\\dash_1\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:47
 Stack trace:
 #0 D:\\projects\\MatrexProjects\\dash_1\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(47): PDO->prepare(\'insert into `us...\')
@@ -3720,4 +3720,16 @@ Stack Trace:
   'Receiver' => 'Receiver',
   'Sender' => 'Sender',
   'connections' => 'Connections',
+  'post_creator' => 'Post Creator',
+  'comment_creator' => 'Comment Creator',
+  'comments' => 'Comments',
+  'Posts' => 'Posts',
+  'Active Connections' => 'Active Connections',
+  'Connections' => 'Connections',
+  'Published Posts' => 'Published Posts',
+  'Total Posts' => 'Total Posts',
+  'news' => 'News',
+  'Latest Users' => 'Latest Users',
+  'Registered Users' => 'Registered Users',
+  'Total Users' => 'Total Users',
 );

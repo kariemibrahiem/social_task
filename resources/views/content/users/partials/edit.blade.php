@@ -12,7 +12,6 @@
 <div class="card">
   <div class="card-body">
 
-    <!-- Validation Errors -->
     @if($errors->any())
       <div class="alert alert-danger">
         <ul class="mb-0">
@@ -23,14 +22,12 @@
       </div>
     @endif
 
-    <!-- Session Error Message -->
     @if(session('error'))
       <div class="alert alert-danger">
         {{ session('error') }}
       </div>
     @endif
 
-    <!-- Session Success Message -->
     @if(session('success'))
       <div class="alert alert-success">
         {{ session('success') }}
@@ -42,7 +39,6 @@
       @method('PUT')
       <div class="row m-3">
 
-        <!-- Username -->
         <div class="col-5 mb-3">
           <label class="form-label" for="name">{{ trns('username') }}</label>
           <input type="text" class="form-control @error('name') is-invalid @enderror" 
@@ -52,7 +48,6 @@
           @enderror
         </div>
 
-        <!-- Email -->
         <div class="col-5 mb-3">
           <label class="form-label" for="email">{{ trns('email') }}</label>
           <input type="email" class="form-control @error('email') is-invalid @enderror" 
@@ -62,7 +57,6 @@
           @enderror
         </div>
 
-        <!-- Phone -->
         <div class="col-5 mb-3">
           <label class="form-label" for="phone">{{ trns('phone') }}</label>
           <input type="text" class="form-control @error('phone') is-invalid @enderror" 
@@ -72,7 +66,6 @@
           @enderror
         </div>
 
-        <!-- Password -->
         <div class="col-5 mb-3">
           <label class="form-label" for="password">{{ trns('password') }}</label>
           <input type="password" class="form-control @error('password') is-invalid @enderror" 
@@ -82,7 +75,6 @@
           @enderror
         </div>
 
-        <!-- Password Confirmation -->
         <div class="col-5 mb-3">
           <label class="form-label" for="password_confirmation">{{ trns('password_confirmation') }}</label>
           <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" 
@@ -92,7 +84,6 @@
           @enderror
         </div>
 
-        <!-- Image -->
         <div class="col-12 mb-3">
           <label class="form-label" for="image">{{ trns('image') }}</label>
           <input accept="image/*" class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
@@ -114,7 +105,6 @@
 
       </div>
 
-      <!-- Submit & Cancel Buttons -->
       <button type="submit" class="btn btn-primary">{{ trns('update') }}</button>
       <a href="{{ route('users.index') }}" class="btn btn-secondary">{{ trns('cancel') }}</a>
     </form>

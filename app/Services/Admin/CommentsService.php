@@ -27,8 +27,6 @@ class CommentsService extends BaseService
                     $user = Auth::guard('admin')->user();
                     $buttons = '';
 
-
-
                     if ($user && $user->can("comments_delete")) {
                         $buttons .= '
                                     <button type="button" 
