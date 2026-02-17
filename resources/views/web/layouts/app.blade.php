@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    
+
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -36,24 +36,24 @@
             </div>
         </div>
     </div>
-    
+
     <header>
-        
+
         <div class="header-area">
             <div class="main-header ">
-                
+
                 <div class="header-mid gray-bg">
-                    
+
                 </div>
                 <div class="header-bottom header-sticky">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
-                                
+
                                 <div class="sticky-logo">
                                     <a href="/"><img src="{{ asset('news-master/assets/img/logo/logo.png') }}" alt=""></a>
                                 </div>
-                                
+
                                 <div class="main-menu d-none d-md-block">
                                     <nav>
                                         <ul id="navigation">
@@ -62,7 +62,7 @@
                                             <li><a href="{{ route('front.connections') }}">connections</a></li>
                                             <li><a href="{{ route('front.posts') }}">posts</a></li>
                                             <li><a href="{{ route('front.notifications') }}">Notification</a></li>
-                                            
+
                                         </ul>
                                     </nav>
                                 </div>
@@ -70,7 +70,8 @@
                             <div class="col-xl-4 col-lg-4 col-md-4">
                                 <div class="header-right f-right d-none d-lg-block">
                                     @auth
-                                    <span class="mr-10">{{ auth()->user()->name }}</span>
+                                    <span class="mr-10"><a href="{{ route('front.profile.edit') }}" style="color:inherit;text-decoration:none;cursor:pointer;">{{ auth()->user()->name }}</a></span>
+                                    <a href="#" data-toggle="modal" data-target="#createPostModal" class="btn btn-sm btn-light mr-10" style="border-radius:20px;">+ Post</a>
                                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="genric-btn danger circle">Logout</a>
                                     <form id="logout-form" action="{{ route('front.logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -81,7 +82,7 @@
                                     @endauth
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-md-none"></div>
                             </div>
@@ -90,7 +91,7 @@
                 </div>
             </div>
         </div>
-        
+
     </header>
 
     <main>
@@ -98,11 +99,11 @@
     </main>
 
     <footer>
-        
+
         <div class="footer-main footer-bg" style="padding: 30px 0;">
             <div class="container">
                 <div class="row align-items-center">
-                    
+
                     <div class="col-lg-6 col-md-6">
                         <div class="footer-logo mb-3">
                             <a href="/"><img src="{{ asset('news-master/assets/img/logo/logo2_footer.png') }}" alt="" style="max-height: 40px;"></a>
@@ -133,7 +134,7 @@
                 </div>
             </div>
         </div>
-        
+
     </footer>
 
     <div class="search-model-box">
@@ -144,20 +145,20 @@
             </form>
         </div>
     </div>
-    
+
     <script src="{{ asset('news-master/assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
-    
+
     <script src="{{ asset('news-master/assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
     <script src="{{ asset('news-master/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('news-master/assets/js/bootstrap.min.js') }}"></script>
-    
+
     <script src="{{ asset('news-master/assets/js/jquery.slicknav.min.js') }}"></script>
 
     <script src="{{ asset('news-master/assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('news-master/assets/js/slick.min.js') }}"></script>
-    
+
     <script src="{{ asset('news-master/assets/js/gijgo.min.js') }}"></script>
-    
+
     <script src="{{ asset('news-master/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('news-master/assets/js/animated.headline.js') }}"></script>
     <script src="{{ asset('news-master/assets/js/jquery.magnific-popup.js') }}"></script>
@@ -174,6 +175,38 @@
 
     <script src="{{ asset('news-master/assets/js/plugins.js') }}"></script>
     <script src="{{ asset('news-master/assets/js/main.js') }}"></script>
+
+    @auth
+    <div class="modal fade" id="createPostModal" tabindex="-1" role="dialog" aria-labelledby="createPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form method="POST" action="{{ route('front.posts.store') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createPostModalLabel">Create New Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="postContent">What's on your mind?</label>
+                            <textarea class="form-control" id="postContent" name="content" rows="4" required placeholder="Write something..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="postImage">Image (optional)</label>
+                            <input type="file" class="form-control-file" id="postImage" name="image" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endauth
 
 </body>
 
