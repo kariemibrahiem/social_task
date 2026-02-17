@@ -8,7 +8,7 @@
 </h4>
 
 <div class="row">
-  <!-- Basic -->
+  
   <div class="col-md-12 mb-4">
     <div class="card">
       <h5 class="card-header">Basic</h5>
@@ -19,9 +19,7 @@
       </div>
     </div>
   </div>
-  <!-- /Basic -->
-
-  <!-- Text Alignment -->
+  
   <div class="col-md-12 mb-4">
     <div class="card">
       <h5 class="card-header">Alignment</h5>
@@ -44,9 +42,7 @@
       </div>
     </div>
   </div>
-  <!-- /Text Alignment -->
-
-  <!-- Divider Colors -->
+  
   <div class="col-md-12 mb-4">
     <div class="card">
       <h5 class="card-header">Colors</h5>
@@ -72,9 +68,7 @@
       </div>
     </div>
   </div>
-  <!-- /Divider Colors -->
-
-  <!-- Icons -->
+  
   <div class="col-md-12 mb-4">
     <div class="card">
       <h5 class="card-header">Icons</h5>
@@ -107,9 +101,7 @@
       </div>
     </div>
   </div>
-  <!-- /Icons -->
-
-  <!-- Icons -->
+  
   <div class="col-md-12">
     <div class="card">
       <h5 class="card-header">Styles</h5>
@@ -132,6 +124,6 @@
       </div>
     </div>
   </div>
-  <!-- /Icons -->
+  
 </div>
 @endsection

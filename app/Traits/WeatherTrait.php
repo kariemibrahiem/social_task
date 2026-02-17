@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 use GuzzleHttp\Client;
-use Stevebauman\Location\Facades\Location; // 📌 استدعاء الباكدج اللي انت مركبه
+use Stevebauman\Location\Facades\Location; 
 
 trait WeatherTrait
 {
@@ -22,30 +22,27 @@ trait WeatherTrait
 
             $client = $this->GetWeatherClient();
 
-            // 📌 أولاً: نحاول نجيب الـ location من الباكدج
             $location = Location::get(request()->ip());
 
             if ($location && $location->latitude && $location->longitude) {
-                // 📌 لو الباكدج رجع إحداثيات → نستخدمها
+                
                 $lat = $location->latitude;
                 $lon = $location->longitude;
             } else {
-                // 📌 لو الباكدج مرجعش حاجة → نستخدم الإحداثيات اللي جايه من الـ params
+                
                 $lat = $lat;
                 $lon = $lon;
             }
 
-            // 📌 هنا نعمل request للـ API
             $response = $client->get("weather", [
                 "query" => [
                     "lat" => $lat,
                     "lon" => $lon,
-                    "appid" => env("WEATHER_API_KEY"), // مفتاحك من .env
+                    "appid" => env("WEATHER_API_KEY"), 
                     "units" => "metric"
                 ]
             ]);
 
-            // 📌 نقرأ البيانات من response ونرجعها بشكل مختصر
             $data = json_decode($response->getBody()->getContents(), true);
             $data = [
                 "temp"      => $data['main']["temp"],
@@ -55,7 +52,7 @@ trait WeatherTrait
             ];
             return $data;
         } catch (\Exception $e) {
-            // 📌 لو حصل أي خطأ (زي مشكلة في الاتصال أو مفتاح API غير صحيح) → نرجع null
+            
             $data = [
                 "temp"      => 0,
                 "pressure"  => 0,

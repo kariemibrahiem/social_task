@@ -21,7 +21,6 @@
         </div>
     </h5>
 
-    <!-- Delete Selected Modal -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

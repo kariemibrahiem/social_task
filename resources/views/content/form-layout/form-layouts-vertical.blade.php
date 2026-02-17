@@ -5,7 +5,6 @@
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
 
-<!-- Basic Layout -->
 <div class="row">
   <div class="col-xl">
     <div class="card mb-4">

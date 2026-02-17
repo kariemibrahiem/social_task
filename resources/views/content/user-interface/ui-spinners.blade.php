@@ -2,11 +2,9 @@
 
 @section('title', 'Spinners - UI elements')
 
-
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Spinners</h4>
 
-<!-- Style -->
 <div class="card mb-4">
   <h5 class="card-header">Style</h5>
   <div class="card-body">
@@ -80,14 +78,12 @@
     </div>
   </div>
 </div>
-<!--/ Style -->
 
-<!-- Size -->
 <div class="card mb-4">
   <h5 class="card-header">Size</h5>
   <div class="card-body">
     <div class="row gy-3">
-      <!-- Large -->
+      
       <div class="col-md">
         <div class="text-light small fw-medium">Large</div>
         <div class="demo-inline-spacing">
@@ -100,7 +96,6 @@
         </div>
       </div>
 
-      <!-- Medium -->
       <div class="col-md">
         <div class="text-light small fw-medium">Medium</div>
         <div class="demo-inline-spacing">
@@ -113,7 +108,6 @@
         </div>
       </div>
 
-      <!-- Small -->
       <div class="col-md">
         <div class="text-light small fw-medium">Small</div>
         <div class="demo-inline-spacing">
@@ -128,6 +122,5 @@
     </div>
   </div>
 </div>
-<!--/ Size -->
 
 @endsection

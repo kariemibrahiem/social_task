@@ -6,7 +6,7 @@
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Carousel</h4>
 
 <div class="row">
-  <!-- Bootstrap carousel -->
+  
   <div class="col-md">
     <h5 class="my-4">Bootstrap carousel</h5>
 
@@ -49,7 +49,7 @@
       </a>
     </div>
   </div>
-  <!-- Bootstrap crossfade carousel -->
+  
   <div class="col-md">
     <h5 class="my-4">Bootstrap crossfade carousel (dark)</h5>
 

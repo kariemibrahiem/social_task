@@ -20,7 +20,7 @@
     </ul>
     <div class="card mb-4">
       <h5 class="card-header">Profile Details</h5>
-      <!-- Account -->
+      
       <div class="card-body">
         <div class="d-flex align-items-start align-items-sm-center gap-4">
           <img src="{{asset('assets/img/avatars/1.png')}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
@@ -159,7 +159,7 @@
           </div>
         </form>
       </div>
-      <!-- /Account -->
+      
     </div>
     <div class="card">
       <h5 class="card-header">Delete Account</h5>

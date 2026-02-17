@@ -145,7 +145,6 @@
     ],
 ],
 
-    
     'attributes' => [
         'name.en' => 'English name',
         'name.ar' => 'الاسم العربي',

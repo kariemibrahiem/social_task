@@ -3,7 +3,7 @@
 @section('title', trns('OTP Verification'))
 
 @section('page-style')
-<!-- Page -->
+
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}">
 <style>
   /* Extra touch for OTP input boxes on small screens */
@@ -24,7 +24,6 @@
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
 
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">
@@ -35,10 +34,9 @@
             </div>
         @endif
 
-          <!-- OTP Verification -->
           <div class="card shadow-sm">
             <div class="card-body">
-              <!-- Logo -->
+              
               <div class="app-brand justify-content-center mb-4">
                 <a href="{{ url('/') }}" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
@@ -49,8 +47,7 @@
                   </span>
                 </a>
               </div>
-              <!-- /Logo -->
-
+              
               <h4 class="mb-2 text-center">{{ trns('Verify Your Account') }} 🔒</h4>
               <p class="mb-4 text-center">{{ trns('Enter the OTP code sent to your email to continue.') }}</p>
 
@@ -92,8 +89,7 @@
 
             </div>
           </div>
-          <!-- /OTP Verification -->
-
+          
         </div>
       </div>
     </div>

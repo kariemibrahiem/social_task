@@ -11,17 +11,14 @@
     <tr>
       <td align="center" style="padding: 20px 0;">
         
-        <!-- Main container -->
         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" style="background-color:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
           
-          <!-- Header -->
           <tr>
             <td align="center" bgcolor="#4CAF50" style="padding: 20px;">
               <h1 style="color:#ffffff; margin:0; font-size: 24px;">🔒 Verification Code</h1>
             </td>
           </tr>
 
-          <!-- Body -->
           <tr>
             <td style="padding: 30px;">
               <p style="font-size:16px; color:#333333; margin:0 0 15px 0;">Hello,</p>
@@ -41,7 +38,6 @@
             </td>
           </tr>
 
-          <!-- Footer -->
           <tr>
             <td bgcolor="#f4f4f4" style="padding: 20px; text-align:center; font-size:12px; color:#888888;">
               &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.

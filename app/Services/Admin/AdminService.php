@@ -57,7 +57,6 @@ class AdminService extends BaseService
                                     </button>';
                             }
 
-
                             return $buttons;
                         })
                        
@@ -94,8 +93,6 @@ class AdminService extends BaseService
                 $data['image'] = $path;
             }
 
-
-
             $roleId = $data['role_id'];
             unset($data['role_id']);
              
@@ -108,14 +105,9 @@ class AdminService extends BaseService
                 $model->assignRole($role->name);
             }
 
-
             if (request()->ajax()) {
                 return response()->json(['status' => 200, 'message' => "تمت العملية بنجاح"]);
             }
-
-            
-
-            
 
             return redirect()->route("{$this->route}.index")->with('success', 'تمت العملية بنجاح');
 
@@ -132,10 +124,6 @@ class AdminService extends BaseService
             return redirect()->back()->with('error', 'حدث خطأ ما.' . $e->getMessage());
         }
     }
-
-
-
-
 
     public function edit($obj)
     {
@@ -157,15 +145,12 @@ class AdminService extends BaseService
                 $data['password'] = $data['password'];
             }
 
-            
             if (isset($data['image']) && $data['image'] instanceof \Illuminate\Http\UploadedFile) {
                 $path = $this->handleFile($data['image'], $this->route, 'image');
                 $data['image'] = $path;
             } elseif (!isset($data['image'])) {
                 unset($data['image']);
             }
-
-
 
             $this->updateData($id, $data);
 

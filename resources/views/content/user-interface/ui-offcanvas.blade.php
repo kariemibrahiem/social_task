@@ -11,7 +11,7 @@
   <h5 class="card-header">Placements</h5>
   <div class="card-body">
     <div class="row gy-3">
-      <!-- Default Offcanvas -->
+      
       <div class="col-lg-3 col-md-6">
         <small class="text-light fw-medium mb-3">Start (Default)</small>
         <div class="mt-3">
@@ -30,7 +30,6 @@
         </div>
       </div>
 
-      <!-- End Offcanvas -->
       <div class="col-lg-3 col-md-6">
         <small class="text-light fw-medium mb-3">End</small>
         <div class="mt-3">
@@ -49,7 +48,6 @@
         </div>
       </div>
 
-      <!-- Top Offcanvas -->
       <div class="col-lg-3 col-md-6">
         <small class="text-light fw-medium mb-3">Top</small>
         <div class="mt-3">
@@ -68,7 +66,6 @@
         </div>
       </div>
 
-      <!-- Bottom Offcanvas -->
       <div class="col-lg-3 col-md-6">
         <small class="text-light fw-medium mb-3">Bottom</small>
         <div class="mt-3">
@@ -94,7 +91,7 @@
   <h5 class="card-header">Backdrop</h5>
   <div class="card-body">
     <div class="row gy-3">
-      <!-- Enable Body Scrolling Offcanvas -->
+      
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium mb-3">Enable Body Scrolling</small>
         <div class="mt-3">
@@ -113,7 +110,6 @@
         </div>
       </div>
 
-      <!-- Enable backdrop (default) Offcanvas -->
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium mb-3">Enable backdrop (default)</small>
         <div class="mt-3">
@@ -132,7 +128,6 @@
         </div>
       </div>
 
-      <!-- Enable Scrolling & Backdrop Offcanvas -->
       <div class="col-lg-4 col-md-6">
         <small class="text-light fw-medium mb-3">Enable Scrolling & Backdrop</small>
         <div class="mt-3">

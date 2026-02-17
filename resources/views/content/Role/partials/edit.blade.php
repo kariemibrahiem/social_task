@@ -16,7 +16,6 @@
       @method('PUT')
       <div class="row g-3 mb-3">
 
-        <!-- Role Name -->
         <div class="col-md-6">
           <label for="role" class="form-label">{{ trns('Role') }}</label>
           <input type="text" class="form-control @error('role') is-invalid @enderror" 
@@ -26,12 +25,10 @@
           @enderror
         </div>
 
-        <!-- Select All Permissions for all groups -->
         <div class="col-md-12 mb-3">
           <input type="checkbox" id="selectAllPermissions"> {{ trns('Select All Permissions') }}
         </div>
 
-        <!-- Permissions as Checkboxes -->
         <div class="col-md-12">
           <label class="form-label">{{ trns('Permissions') }}</label>
 
@@ -69,7 +66,6 @@
           @enderror
         </div>
 
-        <!-- Status -->
         <div class="col-md-6">
           <label for="status" class="form-label">{{ trns('Status') }}</label>
           <select class="form-select @error('status') is-invalid @enderror" id="status" name="status" required>

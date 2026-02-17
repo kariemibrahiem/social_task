@@ -11,7 +11,6 @@
   <span class="text-muted fw-light">UI elements /</span> Tooltips & popovers
 </h4>
 
-<!-- Tooltips -->
 <div class="card mb-4">
   <h5 class="card-header">Tooltips</h5>
   <div class="card-body">
@@ -40,9 +39,7 @@
     </div>
   </div>
 </div>
-<!--/ Tooltips -->
 
-<!-- Popovers -->
 <div class="card">
   <h5 class="card-header">Popovers</h5>
   <div class="card-body">
@@ -72,5 +69,5 @@
     </div>
   </div>
 </div>
-<!--/ Popovers -->
+
 @endsection

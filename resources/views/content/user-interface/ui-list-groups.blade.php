@@ -11,7 +11,7 @@
   <h5 class="card-header">List groups</h5>
   <div class="card-body">
     <div class="row">
-      <!-- Basic List group -->
+      
       <div class="col-lg-6 mb-4 mb-xl-0">
         <small class="text-light fw-medium">Basic</small>
         <div class="demo-inline-spacing mt-3">
@@ -24,8 +24,7 @@
           </div>
         </div>
       </div>
-      <!--/ Basic List group -->
-      <!-- List group with Badges & Pills -->
+      
       <div class="col-lg-6">
         <small class="text-light fw-medium">With Bagdes & Pills</small>
         <div class="demo-inline-spacing mt-3">
@@ -47,13 +46,13 @@
           </ul>
         </div>
       </div>
-      <!--/ List group with Badges & Pills -->
+      
     </div>
   </div>
   <hr class="m-0">
   <div class="card-body">
     <div class="row">
-      <!-- List group Flush (Without main border) -->
+      
       <div class="col-lg-6 mb-4 mb-xl-0">
         <small class="text-light fw-medium">Flush</small>
         <div class="demo-inline-spacing mt-3">
@@ -66,8 +65,7 @@
           </div>
         </div>
       </div>
-      <!--/ List group Flush (Without main border) -->
-      <!-- List group Icons -->
+      
       <div class="col-lg-6">
         <small class="text-light fw-medium">With Icons</small>
         <div class="demo-inline-spacing mt-3">
@@ -95,13 +93,13 @@
           </ul>
         </div>
       </div>
-      <!--/ List group Icons -->
+      
     </div>
   </div>
   <hr class="m-0">
   <div class="card-body">
     <div class="row">
-      <!-- List group Numbered -->
+      
       <div class="col-lg-6 mb-4 mb-xl-0">
         <small class="text-light fw-medium">Numbered</small>
         <div class="demo-inline-spacing mt-3">
@@ -114,8 +112,7 @@
           </ol>
         </div>
       </div>
-      <!--/ List group Numbered -->
-      <!-- List group checkbox -->
+      
       <div class="col-lg-6">
         <small class="text-light fw-medium">List Group With Checkbox</small>
         <div class="demo-inline-spacing mt-3">
@@ -143,13 +140,13 @@
           </div>
         </div>
       </div>
-      <!--/ List group checkbox -->
+      
     </div>
   </div>
   <hr class="m-0">
   <div class="card-body">
     <div class="row">
-      <!-- Contextual List group -->
+      
       <div class="col-lg-6 mb-4 mb-xl-0">
         <small class="text-light fw-medium">Contextual classes</small>
         <div class="demo-inline-spacing mt-3">
@@ -164,8 +161,7 @@
           </ul>
         </div>
       </div>
-      <!--/ Contextual List group -->
-      <!-- Custom content with heading -->
+      
       <div class="col-lg-6">
         <small class="text-light fw-medium">Custom content</small>
         <div class="demo-inline-spacing mt-3">
@@ -197,7 +193,7 @@
           </div>
         </div>
       </div>
-      <!--/ Custom content with heading -->
+      
     </div>
   </div>
 </div>
@@ -206,7 +202,7 @@
   <h5 class="card-header">Javascript behavior</h5>
   <div class="card-body">
     <div class="row">
-      <!-- Custom content with heading -->
+      
       <div class="col-lg-6 mb-4 mb-xl-0">
         <small class="text-light fw-medium">Vertical</small>
         <div class="mt-3">
@@ -295,7 +291,7 @@
           </div>
         </div>
       </div>
-      <!--/ Custom content with heading -->
+      
     </div>
   </div>
 </div>

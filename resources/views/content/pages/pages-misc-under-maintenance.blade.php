@@ -3,12 +3,12 @@
 @section('title', 'Under Maintenance - Pages')
 
 @section('page-style')
-<!-- Page -->
+
 <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-misc.css')}}">
 @endsection
 
 @section('content')
-<!--Under Maintenance -->
+
 <div class="container-xxl container-p-y">
   <div class="misc-wrapper">
     <h2 class="mb-2 mx-2">Under Maintenance!</h2>
@@ -21,5 +21,5 @@
     </div>
   </div>
 </div>
-<!-- /Under Maintenance -->
+
 @endsection

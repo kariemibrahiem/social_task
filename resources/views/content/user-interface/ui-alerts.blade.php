@@ -7,7 +7,7 @@
   <span class="text-muted fw-light">UI elements /</span> Alerts
 </h4>
 <div class="row mb-4">
-  <!-- Basic Alerts -->
+  
   <div class="col-md mb-4 mb-md-0">
     <div class="card">
       <h5 class="card-header">Basic Alerts</h5>
@@ -42,8 +42,7 @@
       </div>
     </div>
   </div>
-  <!--/ Basic Alerts -->
-  <!-- Dismissible Alerts -->
+  
   <div class="col-md">
     <div class="card">
       <h5 class="card-header">Dismissible Alerts</h5>
@@ -92,6 +91,6 @@
       </div>
     </div>
   </div>
-  <!--/ Dismissible Alerts -->
+  
 </div>
 @endsection

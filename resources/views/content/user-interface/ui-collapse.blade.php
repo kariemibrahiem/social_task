@@ -5,7 +5,6 @@
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Collapse</h4>
 
-<!-- Collapse -->
 <h5>Collapse</h5>
 <div class="row">
   <div class="col-12">

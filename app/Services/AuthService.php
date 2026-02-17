@@ -8,7 +8,6 @@ use App\Services\BaseService;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 
-
 class AuthService
 {
     public function index()
@@ -36,9 +35,7 @@ class AuthService
             $remember   = !empty($data['remember']);
 
             $fieldType = filter_var($loginInput, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
-            // dd($loginInput , $password , $fieldType);
-            // dd(Auth::guard('admin')->attempt([$fieldType => $loginInput, 'password' => $password], $remember));
-
+            
             if (Auth::guard('admin')->attempt([$fieldType => $loginInput, 'password' => $password], $remember)) {
                 return response()->json([
                     'status' => 200,
@@ -46,7 +43,6 @@ class AuthService
                     'redirect' => route('dashboard-analytics')
                 ]);
             }
-
 
             return response()->json([
                 'status' => 401,
@@ -61,8 +57,6 @@ class AuthService
             ], 500);
         }
     }
-
-
 
     public function logout()
     {

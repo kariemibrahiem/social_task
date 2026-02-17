@@ -20,7 +20,6 @@
           <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
         </div>
 
-
         <div class="col-5">
           <label class="form-label" for="image">{{ trns('image') }}</label>
           <input class="form-control" type="file" id="image" accept="image/*" name="image">

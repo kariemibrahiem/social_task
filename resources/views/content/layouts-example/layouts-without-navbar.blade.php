@@ -8,7 +8,6 @@ $isNavbar = false;
 
 @section('content')
 
-<!-- Layout Demo -->
 <div class="layout-demo-wrapper">
   <div class="layout-demo-placeholder">
     <img src="{{asset('assets/img/layouts/layout-without-navbar-light.png')}}" class="img-fluid" alt="Layout without navbar">
@@ -18,6 +17,5 @@ $isNavbar = false;
     <p>Layout does not contain Navbar component.</p>
   </div>
 </div>
-<!--/ Layout Demo -->
 
 @endsection

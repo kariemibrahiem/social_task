@@ -6,7 +6,7 @@
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms /</span> Input groups</h4>
 
 <div class="row">
-  <!-- Basic -->
+  
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Basic</h5>
@@ -50,7 +50,6 @@
     </div>
   </div>
 
-  <!-- Merged -->
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Merged</h5>
@@ -94,7 +93,6 @@
     </div>
   </div>
 
-  <!-- Sizing -->
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Sizing</h5>
@@ -117,7 +115,7 @@
       </div>
     </div>
   </div>
-  <!-- Checkbox and radio addons -->
+  
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Checkbox and radio addons</h5>
@@ -143,9 +141,8 @@
   </div>
 </div>
 
-
 <div class="row">
-  <!-- Multiple inputs & addon -->
+  
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Multiple inputs & addon</h5>
@@ -174,7 +171,7 @@
 
     </div>
   </div>
-  <!-- Speech To Text -->
+  
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Speech To Text</h5>
@@ -203,7 +200,6 @@
   </div>
 </div>
 
-<!-- Button with dropdowns & addons -->
 <div class="row">
   <div class="col-md-6">
     <div class="card mb-4">
@@ -291,7 +287,6 @@
 
   <div class="col-md-6">
 
-    <!-- Segmented buttons -->
     <div class="row">
       <div class="col-12">
         <div class="card mb-4">
@@ -335,7 +330,6 @@
       </div>
     </div>
 
-    <!-- Custom select -->
     <div class="row">
       <div class="col-12">
         <div class="card mb-4">
@@ -387,8 +381,6 @@
   </div>
 </div>
 
-
-<!-- Custom file input -->
 <div class="row">
   <div class="col-12">
     <div class="card">

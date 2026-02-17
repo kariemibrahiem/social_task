@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 
-
-
-
 if (!function_exists('copyable_text')) {
     function copyable_text($text)
     {
@@ -29,9 +26,6 @@ if (!function_exists('copyable_text')) {
     }
 }
 
-
-
-
     if (!function_exists('getFile')) {
         function getFile($image, $default = 'assets/uploads/empty.jpg')
         {
@@ -50,7 +44,6 @@ if (!function_exists('copyable_text')) {
         }
     }
 
-
     if (!function_exists('saveImage')) {
         function saveImage(UploadedFile $file, string $folder, string $type = 'image')
         {
@@ -65,9 +58,6 @@ if (!function_exists('copyable_text')) {
             return 'storage/' . $path;
         }
     }
-
-
-
 
     if (!function_exists('imageFromStorage')) {
         function imageFromStorage($image, $default = 'assets/uploads/empty.jpg')
@@ -90,9 +80,6 @@ if (!function_exists('copyable_text')) {
         }
     }
 
-
-
-
 if (!function_exists('statusDatatable')) {
      function statusDatatable($obj)
     {
@@ -103,7 +90,6 @@ if (!function_exists('statusDatatable')) {
                     </div>';
     }
 }
-
 
 if (!function_exists('admin')) {
     function admin()
@@ -132,7 +118,6 @@ function highlightWordsByPosition($text, $positions)
     return implode(' ', $words);
 }
 
-
 if (!function_exists('loggedAdmin')) {
     function loggedAdmin($field = null)
     {
@@ -156,7 +141,6 @@ if (!function_exists('lang')) {
     }
 }
 
-
 if (!function_exists('flang')) {
 
     function flang($en, $ar)
@@ -167,7 +151,6 @@ if (!function_exists('flang')) {
             return $en;
     }
 }
-
 
 if (!function_exists('trans_model')) {
 
@@ -183,18 +166,16 @@ if (!function_exists('trns')) {
     {
         $path = resource_path("lang/en/file.php");
 
-        // Ensure the language file exists
         if (!File::exists($path)) {
             File::put($path, "<?php\n\nreturn [];\n");
         }
         $translations = include $path;
-        // Convert key to human-readable format
+        
         $value = ucwords(str_replace('_', ' ', $key));
 
         if (!array_key_exists($key, $translations)) {
             $translations[$key] = $value;
 
-            // Save the translations back to the file
             $exported = var_export($translations, true);
             File::put($path, "<?php\n\nreturn {$exported};\n");
             return trans('file.' . $key);
@@ -209,12 +190,10 @@ if (!function_exists('routeActive')) {
     {
         $currentRoute = Route::currentRouteName();
 
-        // Exact match
         if ($currentRoute === $routeName) {
             return $class;
         }
 
-        // Wildcard match (if routeName ends with *)
         if (str_ends_with($routeName, '*')) {
             $baseRoute = rtrim($routeName, '*');
             if (str_starts_with($currentRoute, $baseRoute)) {
@@ -232,12 +211,11 @@ if (!function_exists('arrRouteActive')) {
         $currentRoute = Route::currentRouteName();
 
         foreach ($routesName as $route) {
-            // Exact match
+            
             if ($currentRoute === $route) {
                 return $class;
             }
 
-            // Wildcard match
             if (str_ends_with($route, '*')) {
                 $baseRoute = rtrim($route, '*');
                 if (str_starts_with($currentRoute, $baseRoute)) {
@@ -249,7 +227,6 @@ if (!function_exists('arrRouteActive')) {
         return '';
     }
 }
-
 
 if (!function_exists('getTranslationsFromData')) {
 
@@ -288,7 +265,6 @@ if (!function_exists('noImage')) {
     }
 }
 
-
 if (!function_exists('get_user_file')) {
     function get_user_file($image)
     {
@@ -303,7 +279,6 @@ if (!function_exists('get_user_file')) {
         }
     }
 }
-
 
 if (!function_exists('get_file')) {
     function get_file($image): string
@@ -320,7 +295,6 @@ if (!function_exists('get_file')) {
         }
     }
 }
-
 
 if (!function_exists('api')) {
     function api()
@@ -340,15 +314,13 @@ if (!function_exists('helperJson')) {
 if (!function_exists('cleanContent')) {
     function cleanContent($content)
     {
-        // Remove any occurrences of ```html or ```
+        
         return str_replace(['```html', '```'], '', $content);
     }
 }
 if (!function_exists('checkIfAddReview')) {
     function checkIfAddReview($res_id, $user_id)
     {
-
-
 
         $review = Review::where('reservation_id', $res_id)
             ->where('user_id', $user_id)
@@ -361,8 +333,6 @@ if (!function_exists('checkIfAddReview')) {
         }
     }
 }
-
-
 
 function font_icons_v5()
 {
@@ -6899,8 +6869,6 @@ function font_icons_v6()
     ];
 }
 
-
-
  function checkIfModelHasRecords(string $modelClass, string $column, mixed $value): bool
 {
     if (!class_exists($modelClass)) {
@@ -6909,5 +6877,3 @@ function font_icons_v6()
 
     return (new $modelClass)->where($column, $value)->exists();
 }
-
-

@@ -1,9 +1,9 @@
 <?php
-  // Variables
+  
   return [
     "creatorName" => "Kariem",
     "creatorUrl" => "https://github.com/kariemibrahiem",
-    "templateName" => "Matrex",
+    "templateName" => "News",
     "templateSuffix" => "Bootstrap 5 HTML Laravel Free Admin Template",
     "templateVersion" => "1.1.0",
     "templateFree" => true,

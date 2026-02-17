@@ -9,13 +9,13 @@
 
 <div class="card mb-4">
   <h5 class="card-header">Pagination</h5>
-  <!-- Basic Pagination -->
+  
   <div class="card-body">
     <div class="row">
       <div class="col-lg-6">
         <small class="text-light fw-medium">Basic</small>
         <div class="demo-inline-spacing">
-          <!-- Basic Pagination -->
+          
           <nav aria-label="Page navigation">
             <ul class="pagination">
               <li class="page-item first">
@@ -47,13 +47,13 @@
               </li>
             </ul>
           </nav>
-          <!--/ Basic Pagination -->
+          
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Pagination Sizes -->
+
 <div class="card mb-4">
   <h5 class="card-header">Sizes & Alignments</h5>
   <div class="card-body">
@@ -221,13 +221,11 @@
     </div>
   </div>
 </div>
-<!--/ Pagination Sizes -->
 
-<!-- Breadcrumb -->
 <div class="card">
   <h5 class="card-header">Breadcrumbs</h5>
   <div class="card-body">
-    <!-- Basic Breadcrumb -->
+    
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -239,8 +237,7 @@
         <li class="breadcrumb-item active">Data</li>
       </ol>
     </nav>
-    <!-- Basic Breadcrumb -->
-    <!-- Custom style1 Breadcrumb -->
+    
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-style1">
         <li class="breadcrumb-item">
@@ -252,8 +249,7 @@
         <li class="breadcrumb-item active">Data</li>
       </ol>
     </nav>
-    <!--/ Custom style1 Breadcrumb -->
-    <!-- Custom style2 Breadcrumb -->
+    
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-style2 mb-0">
         <li class="breadcrumb-item">
@@ -265,8 +261,8 @@
         <li class="breadcrumb-item active">Data</li>
       </ol>
     </nav>
-    <!--/ Custom style2 Breadcrumb -->
+    
   </div>
 </div>
-<!--/ Breadcrumb -->
+
 @endsection

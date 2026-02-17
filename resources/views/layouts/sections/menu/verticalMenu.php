@@ -50,6 +50,51 @@ return [
         ]
     ],
     (object)[
+        'name' => 'Post',
+        'icon' => 'bx bx-user',
+        'url' => 'posts.index',
+        "permissions" => "posts_read",
+        'slug' => 'posts',
+        'submenu' => [
+            (object)[
+                'name' => 'Post',
+                'url' => 'posts.index',
+                "permissions" => "posts_read",
+                'slug' => 'posts',
+            ],
+        ]
+    ],
+    (object)[
+        'name' => 'Comments',
+        'icon' => 'bx bx-user',
+        'url' => 'comments.index',
+        "permissions" => "comments_read",
+        'slug' => 'comments',
+        'submenu' => [
+            (object)[
+                'name' => 'Comments',
+                'url' => 'comments.index',
+                "permissions" => "comments_read",
+                'slug' => 'comments',
+            ]
+        ]
+    ],
+    (object)[
+        'name' => 'Connection',
+        'icon' => 'bx bx-user',
+        'url' => 'connections.index',
+        "permissions" => "connections_read",
+        'slug' => 'connections',
+        'submenu' => [
+            (object)[
+                'name' => 'Connection',
+                'url' => 'connections.index',
+                "permissions" => "connections_read",
+                'slug' => 'connections',
+            ],
+        ]
+    ],
+    (object)[
         'name' => 'role',
         'icon' => 'bx bx-user',
         'url' => 'Role.index',
@@ -64,74 +109,6 @@ return [
             ],
         ]
     ],
-    (object)[
-        'name' => 'Partners',
-        'icon' => 'bx bx-user',
-        'url' => 'partnerss.index',
-        "permissions" => "partnerss_read",
-        'slug' => 'partnerss',
-        'submenu' => [
-            (object)[
-                'name' => 'Partners',
-                'url' => 'partnerss.index',
-                "permissions" => "partnerss_read",
-                'slug' => 'partnerss',
-            ],
-            (object)[
-                'name' => 'Create Partners',
-                'url' => 'partnerss.create',
-                "permissions" => "partnerss_create",
-                'slug' => 'partnerss.create',
-            ]
-        ]
 
 
-    ],
-    (object)[
-        'name' => 'Collaboration',
-        'icon' => 'bx bx-user',
-        'url' => 'collaborations.index',
-        "permissions" => "collaborations_read",
-        'slug' => 'collaborations',
-        'submenu' => [
-            (object)[
-                'name' => 'Collaboration',
-                'url' => 'collaborations.index',
-                "permissions" => "collaborations_read",
-                'slug' => 'collaborations',
-            ],
-            (object)[
-                'name' => 'Create Collaboration',
-                'url' => 'collaborations.create',
-                "permissions" => "collaborations_create",
-                'slug' => 'collaborations.create',
-            ]
-        ]
-
-
-    ],
-    
-    (object)[
-        'name' => 'Project',
-        'icon' => 'bx bx-user',
-        'url' => 'Backprojects.index',
-        "permissions" => "projects_read",
-        'slug' => 'projects',
-        'submenu' => [
-            (object)[
-                'name' => 'Project',
-                'url' => 'Backprojects.index',
-                "permissions" => "projects_read",
-                'slug' => 'projects',
-            ],
-            (object)[
-                'name' => 'Create Project',
-                'url' => 'Backprojects.create',
-                "permissions" => "projects_create",
-                'slug' => 'projects.create',
-            ]
-        ]
-
-
-    ]
 ];

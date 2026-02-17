@@ -14,7 +14,6 @@ trait ApiTrait
         ], 200);
     }
 
-  
     public function errorResponse($data = [] , $message = 'Error', $code = 400)
     {
         return response()->json([

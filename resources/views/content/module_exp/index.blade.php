@@ -11,7 +11,6 @@
 
 <hr class="my-5" />
 
-<!-- Card -->
 <div class="card">
   <h5 class="card-header d-flex justify-content-between align-items-center flex-wrap">
     <div class="d-flex align-items-center mb-2 mb-md-0">
@@ -51,12 +50,11 @@
 @endsection
 
 @push('scripts')
-<!-- DataTables CSS/JS -->
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 
-<!-- Toastr -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 

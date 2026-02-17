@@ -25,7 +25,6 @@
       @csrf
       <div class="row m-3">
 
-        {{-- User Name --}}
         <div class="col-md-6 mb-3">
           <label class="form-label" for="user_name">{{ trns('username') }}</label>
           <input type="text" class="form-control @error('user_name') is-invalid @enderror" 
@@ -35,7 +34,6 @@
           @enderror
         </div>
 
-        {{-- Email --}}
         <div class="col-md-6 mb-3">
           <label class="form-label" for="email">{{ trns('email') }}</label>
           <input type="email" class="form-control @error('email') is-invalid @enderror" 
@@ -45,7 +43,6 @@
           @enderror
         </div>
 
-        {{-- Phone --}}
         <div class="col-md-6 mb-3">
           <label class="form-label" for="phone">{{ trns('phone') }}</label>
           <input type="text" class="form-control @error('phone') is-invalid @enderror" 
@@ -55,7 +52,6 @@
           @enderror
         </div>
 
-        {{-- Password --}}
         <div class="col-md-6 mb-3">
           <label class="form-label" for="password">{{ trns('password') }}</label>
           <input type="password" class="form-control @error('password') is-invalid @enderror" 
@@ -65,7 +61,6 @@
           @enderror
         </div>
 
-        {{-- Password Confirmation --}}
         <div class="col-md-6 mb-3">
           <label class="form-label" for="password_confirm">{{ trns('password_confirm') }}</label>
           <input type="password" class="form-control @error('password_confirm') is-invalid @enderror" 
@@ -75,7 +70,6 @@
           @enderror
         </div>
 
-        {{-- Image --}}
         <div class="col-md-6 mb-3">
           <label class="form-label" for="image">{{ trns('image') }}</label>
           <input class="form-control @error('image') is-invalid @enderror"  accept="image/*" type="file" id="image" name="image">
@@ -84,7 +78,6 @@
           @enderror
         </div>
 
-        {{-- Role as Select --}}
         <div class="col-md-12 mb-3">
           <label class="form-label" for="role_id">{{ trns('Role') }}</label>
           <select class="form-select @error('role_id') is-invalid @enderror" name="role_id" id="role_id" required>

@@ -12,15 +12,14 @@
     <div class="authentication-inner">
       <div class="card">
         <div class="card-body">
-          <!-- Logo -->
+          
           <div class="app-brand justify-content-center">
             <a href="{{url('/')}}" class="app-brand-link gap-2">
               <span class="app-brand-logo demo">@include('_partials.macros',["width"=>25,"withbg"=>'var(--bs-primary)'])</span>
               <span class="app-brand-text demo text-body fw-bold">{{config('variables.templateName')}}</span>
             </a>
           </div>
-          <!-- /Logo -->
-
+          
           <h4 class="mb-2">Welcome to {{config('variables.templateName')}}! 👋</h4>
 
           <form id="formAuthentication" class="mb-3" action="{{route('login')}}" method="POST">
@@ -115,10 +114,8 @@ $(function(){
 
 </script>
 
-<!-- toastr CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-<!-- toastr JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 @endsection

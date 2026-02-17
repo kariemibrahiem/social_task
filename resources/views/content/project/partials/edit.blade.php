@@ -74,7 +74,6 @@
                         <input  value="{{ $obj->image }}" class="form-control" type="file" id="image" name="image">
                     </div>
 
-
                 </div>
 
                 <button type="submit" class="btn btn-primary">{{ trns('update') }}</button>

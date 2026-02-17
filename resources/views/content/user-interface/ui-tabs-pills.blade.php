@@ -5,7 +5,6 @@
 @section('content')
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Tabs & Pills</h4>
 
-<!-- Tabs -->
 <h5 class="py-3 my-4">Tabs</h5>
 
 <div class="row">
@@ -116,11 +115,9 @@
     </div>
   </div>
 </div>
-<!-- Tabs -->
 
 <hr class="container-m-nx mt-5" />
 
-<!-- Pills -->
 <h5 class="py-3 my-4">Pills</h5>
 
 <div class="row">
@@ -232,5 +229,5 @@
     </div>
   </div>
 </div>
-<!-- Pills -->
+
 @endsection

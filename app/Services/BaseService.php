@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services;
 
 use App\Enums\AdConfirmationEnum;
@@ -12,38 +11,21 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-/**
- * Class BaseService
- * Provides common functionalities to be used by other service classes.
- */
 abstract class BaseService
 {
     use PhotoTrait;
 
-    /**
-     * @var Model
-     */
     public Model $model;
 
-    /**
-     * BaseService constructor.
-     * @param Model $model The model to be used by the service.
-     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
-    /**
-     * Get all instances of the model.
-     *
-     * @return Collection
-     */
     public function getAll(): Collection
     {
         return $this->model->all();
     }
-
 
     public function search($query, array $keys, array $values)
     {
@@ -75,17 +57,11 @@ abstract class BaseService
         return $query;
     }
 
-
-
-
     public function getSelected(...$columns)
     {
         return $this->model->select(...$columns)->get();
     }
 
-    /**
-     * @return mixed
-     */
     public function getDataTable(): mixed
     {
         return $this->model->latest()->get();
@@ -109,7 +85,7 @@ abstract class BaseService
         $acceptBtnDisabled = "<button disabled class='btn btn-success' data-id='{$obj->id}'>
             " . trns('accepted') . "
                </button>";
-        //dd($obj->id);
+        
         $rejectBtn = "<button class='btn btn-danger refuse_reason_btn' data-refuse-id='{$obj->id}' name='rejectBtn'   data-bs-toggle='modal' data-bs-target='#refuse_reason_modal'>
        " . ($obj->{$column} == AdConfirmationEnum::REJECTED->value ? trns('rejected') : trns('reject')) . "
             </button>";
@@ -127,7 +103,6 @@ abstract class BaseService
         }
     }
 
-
     public function StatusDatatableCustom($obj, $status = 1, $column = 'status')
     {
         return
@@ -137,42 +112,6 @@ abstract class BaseService
                 </div>';
     }
 
-    //    public function acceptOrReject($obj,$column = 'ad_confirmation')
-    //    {
-    //        $acceptBtn = " <button class='btn btn-success' id='refuse_reason_btn' data-id='{$obj->id}' name='acceptBtn' id='acceptBtn-{$obj->id}' onclick='changeConfirmation({$obj->id}, \"" . AdConfirmationEnum::CONFIRMED->value . "\")'>
-    //             " . ($obj->{$column} == AdConfirmationEnum::CONFIRMED->value ? trns('accepted') : trns('accept')) . "
-    //                </button>";
-    //        $acceptBtnDisabled = " <button disabled class='btn btn-success' data-id='{$obj->id}' name='acceptBtn' id='acceptBtn-{$obj->id}' onclick='changeConfirmation({$obj->id}, \"" . AdConfirmationEnum::CONFIRMED->value . "\")'>
-    //                " . ($obj->{$column} == AdConfirmationEnum::CONFIRMED->value ? trns('accepted') : trns('accept')) . "
-    //                   </button>";
-    //
-    ////        $rejectBtn = " <button class='btn btn-danger' data-id='{$obj->id}' name='rejectBtn' id='rejectBtn-{$obj->id}' data-bs-toggle='modal' data-bs-target='#refuse_reason_modal'  onclick='changeConfirmation({$obj->id}, \"" . AdConfirmationEnum::REJECTED->value . "\")' >
-    ////       " . ($obj->{$column} == AdConfirmationEnum::REJECTED->value ? trns('rejected') : trns('reject')) . "
-    ////                </button>";
-    //
-    //        $rejectBtn = " <button class='btn btn-danger' data-id='{$obj->id}' name='rejectBtn' id='rejectBtn-{$obj->id}' data-bs-toggle='modal' data-bs-target='#refuse_reason_modal'>
-    //       " . ($obj->{$column} == AdConfirmationEnum::REJECTED->value ? trns('rejected') : trns('reject')) . "
-    //                </button>";
-    //
-    //        $rejectBtnDisbled = " <button disabled class='btn btn-danger' data-id='{$obj->id}' name='rejectBtn' id='rejectBtn-{$obj->id}' data-refuse-id='$obj->id' onclick='changeConfirmation({$obj->id}, \"" . AdConfirmationEnum::REJECTED->value . "\")'>
-    //        " . ($obj->{$column} == AdConfirmationEnum::REJECTED->value ? trns('rejected') : trns('reject')) . "
-    //                    </button>";
-    //
-    //        if ($obj->{$column} == AdConfirmationEnum::REQUESTED->value) {
-    //            // $this->StatusDatatableCustom($obj,StatusEnum::ACTIVE->value);
-    //            return "<div class='form-input'>{$acceptBtn} {$rejectBtn}</div>";
-    //        } elseif ($obj->{$column} == AdConfirmationEnum::CONFIRMED->value) {
-    //            return "<div class='form-input'>{$acceptBtnDisabled}</div>";
-    //        } else {
-    //            return "<div class='form-input'>{$rejectBtnDisbled}</div>";
-    //        }
-    //    }
-    /**
-     * Get all instances of the model that match the given conditions.
-     *
-     * @param array $conditions
-     * @return Collection
-     */
     public function getWhere(array $conditions): Collection
     {
         $query = $this->model->query();
@@ -203,12 +142,6 @@ abstract class BaseService
         return $query->first();
     }
 
-    /**
-     * Get a single instance of the model by ID.
-     *
-     * @param int $id
-     * @return Model|null
-     */
     public function getById(int $id): ?Model
     {
         return $this->model->findOrFail($id);
@@ -224,7 +157,6 @@ abstract class BaseService
         return saveImage($file, $folder, $type);
     }
 
-
     public function handleFiles($files, $folder = null)
     {
         $data = [];
@@ -235,10 +167,6 @@ abstract class BaseService
         return $data;
     }
 
-    /**
-     * Create a new instance of the model.
-     * @param array $data
-     */
     public function createData(array $data)
     {
         return $this->model->create($data);
@@ -250,32 +178,18 @@ abstract class BaseService
         return $image->store('uploads/ ' . $folder, 'public');
     }
 
-    /**
-     * Update an existing instance of the model.
-     *
-     * @param int $id
-     * @param array $data
-     * @return bool
-     */
     public function updateData(int $id, array $data)
     {
         $model = $this->getById($id);
         return $model->update($data);
     }
 
-    /**
-     * Delete an instance of the model by ID and its associated files.
-     *
-     * @param int $id
-     * @return JsonResponse
-     */
     public function delete(int $id): JsonResponse
     {
         $model = $this->getById($id);
 
-
         if ($model) {
-            // Check and delete any associated files
+            
             if (isset($model->image)) {
                 $this->deleteFile($model->image);
             }
@@ -286,15 +200,12 @@ abstract class BaseService
                 $this->deleteFile($model->not_found_icon);
             }
 
-            // Proceed with model deletion
             $model->delete();
 
             return response()->json(['status' => 200, 'message' => trns('deleted successfully')]);
         }
         return response()->json(['status' => 405, 'message' => trns('something went wrong')]);
     }
-
-
 
     public function changeStatus($request)
     {
@@ -307,10 +218,8 @@ abstract class BaseService
             return response()->json(['status' => 200]);
         }
 
-
         return response()->json(['status' => 405]);
     }
-
 
     public function updateColumn($id, $column, $value = null)
     {
@@ -327,22 +236,14 @@ abstract class BaseService
         }
     }
 
-
-    /**
-     * Delete files associated with the model.
-     *
-     * @param Model $model
-     * @return void
-     */
     protected function deleteAssociatedFiles(Model $model): void
     {
-        // Check and delete single image or file
+        
         if (!empty($model->image)) {
             $this->deleteFile($model->image);
         }
 
-        // Check and delete multiple images or files
-        $fields = ['images', 'files']; // Adjust according to your model's fields
+        $fields = ['images', 'files']; 
         foreach ($fields as $field) {
             if (!empty($model->{$field})) {
                 foreach ($model->{$field} as $file) {
@@ -352,12 +253,6 @@ abstract class BaseService
         }
     }
 
-    /**
-     * Helper function to delete a file from storage.
-     *
-     * @param string $filePath
-     * @return void
-     */
     protected function deleteFile(string $filePath): void
     {
         if (File::exists(public_path($filePath))) {
@@ -365,22 +260,11 @@ abstract class BaseService
         }
     }
 
-    /**
-     * Get a pluck array from the model based on specified key and value.
-     *
-     * @param string $keyField The attribute to use as the key.
-     * @param string $valueField The attribute to use as the value.
-     * @return array
-     */
     public function getPluckArray(string $keyField, string $valueField): array
     {
         return $this->model->pluck($valueField, $keyField)->toArray();
     }
 
-    /**
-     * @param $image
-     * @return string
-     */
     function imageDataTable($image): string
     {
         $imagePath = $image ? getFile($image) : getFile('assets/uploads/empty.png');
@@ -391,8 +275,6 @@ abstract class BaseService
                      style="cursor:pointer;" 
                      width="100" height="100">';
     }
-
-
 
     public function iamgeFromStorage($image)
     {
@@ -406,11 +288,6 @@ abstract class BaseService
                     height="100">';
     }
 
-    /**
-     * @param $request
-     * @param $rules
-     * @return false|JsonResponse
-     */
     public function apiValidator($request, $rules, $messages = []): false|JsonResponse
     {
         $validator = Validator::make($request, $rules, $messages = []);
@@ -422,12 +299,6 @@ abstract class BaseService
         return false;
     }
 
-    /**
-     * @param $msg
-     * @param $data
-     * @param int $status
-     * @return JsonResponse
-     */
     public function responseMsg($msg, $data = null, int $status = 200): JsonResponse
     {
         return response()->json([
@@ -437,10 +308,6 @@ abstract class BaseService
         ]);
     }
 
-    /**
-     * @param $data
-     * @return JsonResponse
-     */
     public function successResponse($data = null): JsonResponse
     {
         return response()->json([
@@ -450,9 +317,6 @@ abstract class BaseService
         ]);
     }
 
-    /**
-     * @return JsonResponse
-     */
     public function errorResponse($data = null): JsonResponse
     {
         return response()->json([
@@ -462,10 +326,6 @@ abstract class BaseService
         ]);
     }
 
-    /**
-     * @param $data
-     * @return JsonResponse
-     */
     public function validationResponse($data = null): JsonResponse
     {
         return response()->json([
@@ -475,9 +335,6 @@ abstract class BaseService
         ]);
     }
 
-    /**
-     * @return string
-     */
     protected function generateCode(): string
     {
         do {
@@ -497,19 +354,17 @@ abstract class BaseService
         $path = base_path('.env');
 
         if (file_exists($path)) {
-            // Read the .env file content
+            
             $envContent = file_get_contents($path);
 
-            // Find the variable in the .env file or add it if it doesn’t exist
             if (strpos($envContent, "{$key}=") !== false) {
-                // Replace the value of the existing key
+                
                 $envContent = preg_replace("/^{$key}=.*/m", "{$key}={$value}", $envContent);
             } else {
-                // Append new variable to the end of .env file
+                
                 $envContent .= "\n{$key}={$value}";
             }
 
-            // Write the updated content back to the .env file
             file_put_contents($path, $envContent);
         }
     }
@@ -527,7 +382,6 @@ abstract class BaseService
             return response()->json(['status' => 500, 'message' => trns('something_went_wrong')]);
         }
     }
-
 
     public function updateColumnSelected($request, $column, $values = null)
     {
@@ -556,7 +410,6 @@ abstract class BaseService
         return str_replace(' ', '', strtolower($name)) . rand(1000, 9999);
     }
 
-
     public function subStrText($text)
     {
         return '
@@ -577,9 +430,9 @@ abstract class BaseService
             $instance->clearMediaCollection($collectionName);
         }
 
-        $modelType = strtolower(class_basename($instance)); // ex: association
+        $modelType = strtolower(class_basename($instance)); 
         $modelId = $instance->id;
-        $basePath = "{$modelType}/{$modelId}/{$collectionName}"; // ex: association/5/files
+        $basePath = "{$modelType}/{$modelId}/{$collectionName}"; 
 
         $fullPath = storage_path("app/public/{$basePath}");
         if (!file_exists($fullPath)) {
@@ -597,13 +450,12 @@ abstract class BaseService
         }
     }
 
-
     private function saveFileManually($file, $instance, $collectionName, $basePath)
     {
         $extension = $file->getClientOriginalExtension();
         $uuidFileName = Str::uuid()->toString() . '.' . $extension;
-        $file->storeAs("public/{$basePath}", $uuidFileName); // save to storage/app/public/...
-        // سجل الملف في Media Library (بدون نقل الملف)
+        $file->storeAs("public/{$basePath}", $uuidFileName); 
+        
         $instance
             ->copyMedia(storage_path("app/public/{$basePath}/{$uuidFileName}"))
             ->usingFileName($uuidFileName)
@@ -611,51 +463,31 @@ abstract class BaseService
             ->toMediaCollection($collectionName, 'public');
     }
 
-
-
-
-
-
-
-
-    /**
-     * Process a single file with optimized storage and resizing
-     */
     protected function processSingleFile($instance, $file, $collectionName, $basePath)
     {
         $media = $instance->addMedia($file)
             ->usingFileName($this->generateSafeFilename($file->getClientOriginalName()))
             ->toMediaCollection($collectionName);
 
-        // Optimize images if they're images
         if (str_starts_with($media->mime_type, 'image/')) {
             $this->optimizeImage($media);
         }
     }
 
-
-    /**
-     * Generate a safe filename by removing special characters
-     */
     protected function generateSafeFilename($filename)
     {
         return preg_replace('/[^a-zA-Z0-9\-\._]/', '', $filename);
     }
 
-    /**
-     * Optimize image size and quality
-     */
     protected function optimizeImage($media)
     {
         try {
             $path = $media->getPath();
 
-            // Use intervention/image if available
             if (class_exists(\Intervention\Image\ImageManager::class)) {
                 $manager = new \Intervention\Image\ImageManager(['driver' => 'gd']);
                 $image = $manager->make($path);
 
-                // Resize if larger than 1920px on either dimension
                 if ($image->width() > 1920 || $image->height() > 1920) {
                     $image->resize(1920, 1920, function ($constraint) {
                         $constraint->aspectRatio();
@@ -663,11 +495,10 @@ abstract class BaseService
                     });
                 }
 
-                // Save with 80% quality
                 $image->save($path, 80);
             }
         } catch (\Exception $e) {
-            // Fail silently if image optimization fails
+            
             \Log::error("Image optimization failed: " . $e->getMessage());
         }
     }

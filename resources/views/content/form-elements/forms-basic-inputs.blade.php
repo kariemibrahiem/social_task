@@ -37,7 +37,6 @@
     </div>
   </div>
 
-  <!-- Form controls -->
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Form Controls</h5>
@@ -91,7 +90,6 @@
     </div>
   </div>
 
-  <!-- Input Sizing -->
   <div class="col-md-6">
     <div class="card mb-4">
       <h5 class="card-header">Input Sizing</h5>
@@ -145,12 +143,11 @@
     </div>
   </div>
 
-  <!-- Default Checkboxes and radios & Default checkboxes and radios -->
   <div class="col-xl-6">
 
     <div class="card mb-4">
       <h5 class="card-header">Checkboxes and Radios</h5>
-      <!-- Checkboxes and Radios -->
+      
       <div class="card-body">
         <div class="row gy-3">
           <div class="col-md">
@@ -216,7 +213,7 @@
         </div>
       </div>
       <hr class="m-0" />
-      <!-- Inline Checkboxes -->
+      
       <div class="card-body">
         <div class="row gy-3">
           <div class="col-md">
@@ -253,7 +250,6 @@
       </div>
     </div>
 
-    <!-- Switches -->
     <div class="card mb-4">
       <h5 class="card-header">Switches</h5>
       <div class="card-body">
@@ -276,7 +272,6 @@
       </div>
     </div>
 
-    <!-- Range -->
     <div class="card mb-4 mb-xl-0">
       <h5 class="card-header">Range</h5>
       <div class="card-body">
@@ -302,7 +297,7 @@
   </div>
 
   <div class="col-xl-6">
-    <!-- HTML5 Inputs -->
+    
     <div class="card mb-4">
       <h5 class="card-header">HTML5 Inputs</h5>
       <div class="card-body">
@@ -393,7 +388,6 @@
       </div>
     </div>
 
-    <!-- File input -->
     <div class="card">
       <h5 class="card-header">File input</h5>
       <div class="card-body">

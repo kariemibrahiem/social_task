@@ -6,7 +6,7 @@
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Badges</h4>
 
 <div class="row">
-  <!-- Basic Badges -->
+  
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header">Basic Badges</h5>
@@ -39,7 +39,6 @@
     </div>
   </div>
 
-  <!-- Label Badges -->
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header">Label Badges</h5>
@@ -75,7 +74,7 @@
 </div>
 
 <div class="row">
-  <!-- Button with Badges -->
+  
   <div class="col-lg">
     <div class="card mb-4">
       <h5 class="card-header"> Button with Badges</h5>
@@ -114,7 +113,7 @@
 </div>
 
 <div class="row">
-  <!-- Badge Circle -->
+  
   <div class="col-12">
     <div class="card mb-4">
       <h5 class="card-header"> Badge Circle & Square Style</h5>

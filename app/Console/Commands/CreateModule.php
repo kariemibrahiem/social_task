@@ -9,18 +9,9 @@ use Illuminate\Support\Str;
 
 class CreateModule extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'make:module {name} {--api}';
+    
+    protected $signature = 'make:module {name} {--api} {--api-only}';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Create model, controller, service , api , sidebar , permission, and request for an entity';
 
     public function handle()
@@ -28,13 +19,19 @@ class CreateModule extends Command
         $enumFile    = app_path("Enums/PermissionEnums.php");
         $name        = $this->argument('name');
         $isApi       = $this->option('api');
+        $isApiOnly   = $this->option('api-only');
         $modelName   = Str::studly($name);
         $serviceName = "{$modelName}Service";
         $controller  = "{$modelName}Controller";
         $requestName = "{$modelName}Request";
         $folderName  = strtolower(Str::snake($modelName));
 
-        if (!$isApi) {
+        if ($isApiOnly) {
+            $this->createApiController($modelName, $serviceName, $controller);
+            $this->createService($modelName);
+            $this->createRequest($modelName);
+            $this->addApiRoutes($modelName, $folderName);
+        } else if (!$isApi) {
             $this->createModel($modelName);
             $this->createMigration($name, $modelName);
             $this->createController($modelName, $serviceName);
@@ -44,8 +41,7 @@ class CreateModule extends Command
             $this->addResourceRoute($modelName, $folderName);
             $this->updatePermissionEnum($modelName, $enumFile);
             $this->updateSidebar($modelName, $folderName);
-            // $this->createApiController($modelName, $serviceName, $controller);
-            // $this->addApiRoutes($modelName, $folderName);
+            
         } else {
             $this->createModel($modelName);
             $this->createMigration($name, $modelName);
@@ -186,7 +182,7 @@ class CreateModule extends Command
             return;
         }
 
-        $slugName  = $folderName."s";
+        $slugName  = $folderName . "s";
         $permissionName = strtolower($modelName) . "s";
         $labelName = Str::headline($modelName);
         $menuHeader = Str::headline($modelName) . " Management";
@@ -212,7 +208,6 @@ class CreateModule extends Command
                         'slug' => '{$slugName}.create',
                     ]]
 
-            
         PHP;
 
         $content = File::get($sidebarFile);
@@ -280,10 +275,6 @@ class CreateModule extends Command
         File::append($routeFile, "\n" . $apiRoutes . "\n");
         $this->info("API routes for '{$folderName}s' added successfully , created by Kariem developer. (https://github.com/kariemibrahiem)");
     }
-
-    // ========================
-    // Stubs
-    // ========================
 
     private function getModelStub($modelName)
     {
@@ -366,7 +357,6 @@ class {$modelName}Controller extends Controller
 }
 EOT;
     }
-
 
     private function getApiControllerStub($modelName, $serviceName)
     {
@@ -459,7 +449,7 @@ EOT;
 
     private function getServiceStub($modelName)
     {
-        $folderName = strtolower(Str::snake($modelName)); // Derive folder name from model
+        $folderName = strtolower(Str::snake($modelName)); 
 
         $permissionName = strtolower($modelName) . "s";
         return <<<EOT
@@ -581,8 +571,6 @@ class {$modelName}Service extends BaseService
 EOT;
     }
 
-
-
     private function getRequestStub($modelName)
     {
         return <<<EOT
@@ -625,9 +613,6 @@ class {$modelName}Request extends FormRequest
 EOT;
     }
 
-
-    
-
     private function addResourceRoute($modelName, $folderName)
     {
         $routeFile = base_path('routes/web.php');
@@ -667,7 +652,4 @@ EOT;
             $this->error("Could not find auth:admin group in routes/web.php");
         }
     }
-
-
-
 }

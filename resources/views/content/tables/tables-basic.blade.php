@@ -7,7 +7,6 @@
   <span class="text-muted fw-light">Tables /</span> Basic Tables
 </h4>
 
-<!-- Basic Bootstrap Table -->
 <div class="card">
   <h5 class="card-header">Table Basic</h5>
   <div class="table-responsive text-nowrap">
@@ -134,11 +133,9 @@
     </table>
   </div>
 </div>
-<!--/ Basic Bootstrap Table -->
 
 <hr class="my-5">
 
-<!-- Bootstrap Dark Table -->
 <div class="card">
   <h5 class="card-header">Table Dark</h5>
   <div class="table-responsive text-nowrap">
@@ -265,11 +262,9 @@
     </table>
   </div>
 </div>
-<!--/ Bootstrap Dark Table -->
 
 <hr class="my-5">
 
-<!-- Bootstrap Table with Header - Dark -->
 <div class="card">
   <h5 class="card-header">Dark Table head</h5>
   <div class="table-responsive text-nowrap">
@@ -396,11 +391,9 @@
     </table>
   </div>
 </div>
-<!--/ Bootstrap Table with Header Dark -->
 
 <hr class="my-5">
 
-<!-- Bootstrap Table with Header - Light -->
 <div class="card">
   <h5 class="card-header">Light Table head</h5>
   <div class="table-responsive text-nowrap">
@@ -527,11 +520,9 @@
     </table>
   </div>
 </div>
-<!-- Bootstrap Table with Header - Light -->
 
 <hr class="my-5">
 
-<!-- Bootstrap Table with Header - Footer -->
 <div class="card">
   <h5 class="card-header">Table Header & Footer</h5>
   <div class="table-responsive text-nowrap">
@@ -667,11 +658,9 @@
     </table>
   </div>
 </div>
-<!-- Bootstrap Table with Header - Footer -->
 
 <hr class="my-5">
 
-<!-- Bootstrap Table with Caption -->
 <div class="card">
   <h5 class="card-header">Table Caption</h5>
   <div class="table-responsive text-nowrap">
@@ -799,11 +788,9 @@
     </table>
   </div>
 </div>
-<!-- Bootstrap Table with Caption -->
 
 <hr class="my-5">
 
-<!-- Striped Rows -->
 <div class="card">
   <h5 class="card-header">Striped rows</h5>
   <div class="table-responsive text-nowrap">
@@ -930,11 +917,9 @@
     </table>
   </div>
 </div>
-<!--/ Striped Rows -->
 
 <hr class="my-5">
 
-<!-- Bordered Table -->
 <div class="card">
   <h5 class="card-header">Bordered Table</h5>
   <div class="card-body">
@@ -1063,11 +1048,9 @@
     </div>
   </div>
 </div>
-<!--/ Bordered Table -->
 
 <hr class="my-5">
 
-<!-- Borderless Table -->
 <div class="card">
   <h5 class="card-header">Borderless Table</h5>
   <div class="table-responsive text-nowrap">
@@ -1194,11 +1177,9 @@
     </table>
   </div>
 </div>
-<!--/ Borderless Table -->
 
 <hr class="my-5">
 
-<!-- Hoverable Table rows -->
 <div class="card">
   <h5 class="card-header">Hoverable rows</h5>
   <div class="table-responsive text-nowrap">
@@ -1325,11 +1306,8 @@
     </table>
   </div>
 </div>
-<!--/ Hoverable Table rows -->
 
 <hr class="my-5">
-
-<!-- Small table -->
 
 <div class="card">
   <h5 class="card-header">Small Table</h5>
@@ -1457,11 +1435,8 @@
     </table>
   </div>
 </div>
-<!--/ Small table -->
 
 <hr class="my-5">
-
-<!-- Contextual Classes -->
 
 <div class="card">
   <h5 class="card-header">Contextual Classes</h5>
@@ -1751,11 +1726,9 @@
     </table>
   </div>
 </div>
-<!--/ Contextual Classes -->
 
 <hr class="my-5">
 
-<!-- Table within card -->
 <h5 class="mb-4">Table without Card</h5>
 <div class="table-responsive text-nowrap">
   <table class="table card-table">
@@ -1880,11 +1853,9 @@
     </tbody>
   </table>
 </div>
-<!--/ Table within card -->
 
 <hr class="my-5">
 
-<!-- Responsive Table -->
 <div class="card">
   <h5 class="card-header">Responsive Table</h5>
   <div class="table-responsive text-nowrap">
@@ -1944,5 +1915,5 @@
     </table>
   </div>
 </div>
-<!--/ Responsive Table -->
+
 @endsection
